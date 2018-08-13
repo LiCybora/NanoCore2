@@ -246,6 +246,13 @@
             "discarded but not entire rule",
         },
 
+        "nano_l_filter_resource_not_found": {
+            "message": "The resource '{{res}}' could not be found, is it " +
+            "spelled correctly?",
+
+            "description": "Warning when resource not found",
+        },
+
         /*********************************************************************/
 
         // Filter linter deprecations
@@ -325,10 +332,10 @@
         },
 
         "nano_l_filter_ag_element_remove": {
-            "message": "Element remove rules with Adguard syntax are not " +
+            "message": "Element remove rules with AdGuard syntax are not " +
             "yet supported.",
 
-            "description": "Error when Adguard style element remove rule",
+            "description": "Error when AdGuard style element remove rule",
         },
 
         "nano_l_filter_negated_generichide": {

@@ -1,14 +1,15 @@
 {
-  "author": "jspenguin2017",
+  "author": "LiCybora",
   "bugs": {
-    "url": "https://github.com/LiCybora/NanoCore/issues"
+    "url": "https://github.com/LiCybora/NanoCoreFirefox/issues"
   },
   "dependencies": {
     "archiver": "~2.1.1",
     "esprima": "~4.0.1",
     "del": "~3.0.0",
     "fs-extra": "~7.0.0",
-    "sign-addon": "~0.3.1"
+    "sign-addon": "~0.3.1",
+    "yauzl": "~2.10.0"
   },
   "description": "Nano Core 2 Terminal",
   "engines": {

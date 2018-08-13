@@ -362,7 +362,8 @@ exports.build_resources = async (browser) => {
             encoding: "utf8",
         });
         record_stream.on("error", (err) => {
-            // TODO: Test to make sure this actually works like this
+            // TODO: Error thrown inside event handlers are not caught by
+            // async
             throw err;
         });
 
@@ -568,6 +569,8 @@ exports.publish = async (browser, term) => {
 
         await store.publish(input, data.chromium_id, term);
     } else if (browser === "edge") {
+        // https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/packaging/using-manifoldjs-to-package-extensions
+
         if (!edge)
             edge = require("../../Prototype/NanoCore2/edge.js");
 

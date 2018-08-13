@@ -80,8 +80,8 @@ nano.enable_integration_filter = () => {
 
 nano.is_trusted_ext = (id) => {
     return (
-        sender.id === nano.defender_ext_id_chrome ||
-        sender.id === nano.defender_ext_id_edge
+        id === nano.defender_ext_id_chrome ||
+        id === nano.defender_ext_id_edge
     );
 };
 
@@ -265,6 +265,55 @@ nano.FilterLinter.prototype.warn = function (message) {
         type: "warning",
         text: message
     });
+};
+
+/*****************************************************************************/
+
+nano.flintable = {
+    // Resource existence check
+    ResScriptInject: 0x0000,
+    ResRedirect: 0x0001
+};
+
+nano.FilterLinter.prototype.lint = function (lintable, ...data) {
+    if (!nano.cf.first_party)
+        return;
+
+    switch (lintable) {
+        case nano.flintable.ResScriptInject:
+            {
+                let token = data[0];
+
+                const i = token.indexOf(",");
+                if (i !== -1)
+                    token = token.substring(0, i);
+
+                if (!nano.ub.redirectEngine.resources.has(token)) {
+                    nano.flintw(
+                        "nano_l_filter_resource_not_found",
+                        ["{{res}}", token]
+                    );
+                }
+            }
+            break;
+
+        case nano.flintable.ResRedirect:
+            {
+                const token = data[0];
+
+                if (!nano.ub.redirectEngine.resources.has(token)) {
+                    nano.flintw(
+                        "nano_l_filter_resource_not_found",
+                        ["{{res}}", token]
+                    );
+                }
+            }
+            break;
+
+        default:
+            console.error("Unexpected lintable type " + lintable);
+            return;
+    }
 };
 
 /*****************************************************************************/
