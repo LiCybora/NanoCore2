@@ -38,7 +38,7 @@ const assert = require("assert");
  * Version number.
  * @const {string}
  */
-exports.version = "1.0.0.61";
+exports.version = "1.0.0.63";
 
 /**
  * The based on string.
@@ -177,6 +177,8 @@ exports.manifest = (browser) => {
             "128": "img/128_on.png",
             "16": "img/128_on.png",
         };
+        // TODO: Remove when Edge properly support split mode
+        manifest.incognito = "spanning";
         delete manifest.minimum_chrome_version;
         manifest.minimum_edge_version = "41.16299.248.0";
         {

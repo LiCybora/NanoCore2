@@ -16,7 +16,7 @@
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano ma dwa zestawy zasobów, <a href='https:\/\/github.com\/gorhill\/uBlock\/wiki\/Resources-Library'>Zasoby uBlock Origin<\/a> i <a href='https:\/\/github.com\/NanoAdblocker\/NanoFilters\/blob\/master\/NanoFiltersSource\/NanoResources.txt'>Dodatkowe Zasoby Nano<\/a>.",
+    "message": "Nano ma dwa zestawy zasobów, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>Zasoby uBlock Origin</a> i <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Dodatkowe Zasoby Nano</a>.",
     "description": "Resources reference links"
   },
   "nano_d_ace_help": {
@@ -111,6 +111,10 @@
     "message": "Nano odrzucił typy opcji, które nie są jeszcze obsługiwane.",
     "description": "Warning when unsupported type options discarded but not entire rule"
   },
+  "nano_l_filter_resource_not_found": {
+    "message": "The resource '{{res}}' could not be found, is it spelled correctly?",
+    "description": "Warning when resource not found"
+  },
   "nano_l_filter_comment_bracket": {
     "message": "Używanie '[' do oznaczenia komentarza jest przestarzałe, skorzystaj z '!' zamiast tego.",
     "description": "Deprecation when '[' used for comments"
@@ -156,8 +160,8 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Reguły usuwania elementów ze składnią Adguard nie są jeszcze obsługiwane.",
-    "description": "Error when Adguard style element remove rule"
+    "message": "Reguły usuwania elementów ze składnią AdGuard nie są jeszcze obsługiwane.",
+    "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
     "message": "Opcje 'generichide', 'ghide', i 'elemhide' nie mogą być zanegowane.",
@@ -220,7 +224,7 @@
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "Ta reguła jest na razie odrzucana. Więcej informacji na: https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77",
-    "description": "https:\/\/github.com\/NanoAdblocker\/NanoCore\/issues\/77"
+    "message": "Ta reguła jest na razie odrzucana. Więcej informacji na: https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
   }
 }

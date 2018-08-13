@@ -11,7 +11,7 @@ Upstream commit pin: `a20498b5c02b6e55e32ffe5ede829249cbdedeac` or `1.16.15rc0`
 
 ## Localization
 
-Nano Core 2 has extra locale strings, most of them are for Nano Linter.
+Nano Core 2 has some extra locale strings, most of them are for Nano Linter.
 
 You can contribute to localization here:
 https://crowdin.com/project/nano-adblocker
@@ -54,7 +54,10 @@ publish  Build, test, package, then publish the extension
          Optionally pass browser name to publish for only one browser
 clean    Remove all build files
 
-tmake    Build English locale file from locale definition
+lmake    Build English locale file from locale definition
+lsync    Synchronize (non-English) locale files with the latest build of the
+         Crowdin project
+         This will not rebuild the Crowdin project even if there are changes
 
 config   Print active configuration data
 reload   Reload configuration data
@@ -65,7 +68,7 @@ exit     Exit the terminal
 
 - Pull filters update
 - If needed, pull upstream update and update about string
-- If needed, pull locale update
+- If needed, build and pull locale update
 - Bump version number
 - Add tags to repositories, and upload packages
 - Upload packages to extension stores

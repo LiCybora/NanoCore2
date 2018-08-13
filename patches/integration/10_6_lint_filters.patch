@@ -140,7 +140,7 @@ index f4d2c39..ea2d22b 100644
              writer.push([
                  compiled.charCodeAt(0) !== 0x7B /* '{' */ ? 64 : 65,
 diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
-index 259bf5c..d1a273b 100644
+index 259bf5c..2b4060f 100644
 --- a/src/js/redirect-engine.js
 +++ b/src/js/redirect-engine.js
 @@ -302,6 +302,10 @@ RedirectEngine.prototype.fromCompiledRule = function(line) {
@@ -176,7 +176,7 @@ index 259bf5c..d1a273b 100644
          return;
      }
  
-@@ -362,11 +369,16 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+@@ -362,11 +369,18 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
              continue;
          }
          if ( src.startsWith('~') ) {
@@ -188,13 +188,15 @@ index 259bf5c..d1a273b 100644
  
 +    if ( out.length === 0 ) {
 +        nano.flintw('nano_r_no_destination');
++    } else {
++        nano.fl.lint(nano.flintable.ResRedirect, redirect);
 +    }
 +
      return out;
  };
  
 diff --git a/src/js/scriptlet-filtering.js b/src/js/scriptlet-filtering.js
-index 41577f3..c35a5fd 100644
+index 41577f3..0ac39ce 100644
 --- a/src/js/scriptlet-filtering.js
 +++ b/src/js/scriptlet-filtering.js
 @@ -245,6 +245,8 @@
@@ -206,15 +208,18 @@ index 41577f3..c35a5fd 100644
              }
              return;
          }
-@@ -254,6 +256,7 @@
+@@ -254,8 +256,10 @@
              !nano.cf.is_privileged &&
              nanoInjectArgs.startsWith(nano.privileged_assets_previx)
          ) {
 +            nano.flinte('nano_l_filter_assets_access_violation');
              return;
          }
++        nano.fl.lint(nano.flintable.ResScriptInject, nanoInjectArgs);
  
-@@ -270,7 +273,10 @@
+         // https://github.com/gorhill/uBlock/issues/3375
+         //   Ignore instances of exception filter with negated hostnames,
+@@ -270,7 +274,10 @@
              }
              var hash = µburi.domainFromHostname(hostname);
              if ( parsed.exception ) {

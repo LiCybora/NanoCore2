@@ -32,6 +32,7 @@
  */
 const assert = require("assert");
 const build = require("./build.js");
+const crowdin = require("./crowdin.js");
 const fs = require("fs-extra");
 const os = require("os");
 const path = require("path");
@@ -252,7 +253,7 @@ cmd_handlers.set("sync", async () => {
 
 cmd_handlers.set("apply", async () => {
     if (config.Patches.length === 0)
-        return term.ready();
+        return void term.ready();
 
     busy = true;
 
@@ -456,20 +457,55 @@ cmd_handlers.set("clean", async () => {
 
 /*****************************************************************************/
 
-cmd_handlers.set("tmake", async () => {
+/**
+ * Build English locale file from locale declaration.
+ * @async @function
+ * @throws When things go wrong.
+ */
+const lmake = async () => {
+    const data = eval(await fs.readFile("./locale.nano.js", "utf8"));
+
+    const output = path.resolve("./src/_locales/en/");
+    await fs.mkdirp(output);
+
+    await fs.writeFile(
+        path.resolve(output, "messages.json"),
+        JSON.stringify(data, null, 2),
+        "utf8",
+    );
+};
+
+/**
+ * Synchronize (non-English) locale files with the latest build of the
+ * Crowdin project.
+ * This will not rebuild the Crowdin project even if there are changes.
+ * @async @function
+ * @throws When things go wrong.
+ */
+const lsync = async () => {
+    await crowdin.sync();
+};
+
+/*****************************************************************************/
+
+cmd_handlers.set("lmake", async () => {
     busy = true;
 
     try {
-        const data = eval(await fs.readFile("./locale.nano.js", "utf8"));
+        await lmake();
+    } catch (err) {
+        term.write_line(err.stack);
+    }
 
-        const output = path.resolve("./src/_locales/en/");
-        await fs.mkdirp(output);
+    busy = false;
+    term.ready();
+});
 
-        await fs.writeFile(
-            path.resolve(output, "messages.json"),
-            JSON.stringify(data, null, 2),
-            "utf8",
-        );
+cmd_handlers.set("lsync", async () => {
+    busy = true;
+
+    try {
+        await lsync();
     } catch (err) {
         term.write_line(err.stack);
     }
