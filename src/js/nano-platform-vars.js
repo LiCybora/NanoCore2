@@ -22,15 +22,16 @@
 
 ******************************************************************************/
 
-'use strict';
+"use strict";
 
-/******************************************************************************/
+/*****************************************************************************/
 
-window.NanoDefenderExtensionID = '{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}';
-window.NanoReIsDashboardURL = new RegExp('^' + chrome.runtime.getURL('') +
-    '(?:nano-)?dashboard\\.html');
+var nano = nano || {};
 
-/******************************************************************************/
+/*****************************************************************************/
 
-window.NanoAdblockerDeveloperModeExtensionID = '';
-/******************************************************************************/
+nano.defender_ext_id_chrome = "ggolfgbegefeeoocgjbmkembbncoadlb";
+nano.defender_ext_id_edge = "";
+nano.defender_ext_id_firefox = "{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}";
+
+/*****************************************************************************/

@@ -81,7 +81,8 @@ nano.enable_integration_filter = () => {
 nano.is_trusted_ext = (id) => {
     return (
         id === nano.defender_ext_id_chrome ||
-        id === nano.defender_ext_id_edge
+        id === nano.defender_ext_id_edge ||
+        id === nano.defender_ext_id_firefox
     );
 };
 
