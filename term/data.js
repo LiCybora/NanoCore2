@@ -52,16 +52,22 @@ exports.based_on = "uBlock Origin Version/1.16.15rc0 Commit/a20498b UserCSS/disa
  */
 exports.chromium_id = "gabbbocakeomblphkmmnoamkioajlkfo";
 
+/**
+ * Firefox extension identification string.
+ * @const {string}
+ */
+exports.firefox_id = "{0f929014-5ed2-4527-8b8d-86a9c889b129}";
+
 /*****************************************************************************/
 
 /**
  * Generate manifest.
  * @function
- * @param {Enum} browser - One of "chromium", "edge".
+ * @param {Enum} browser - One of "chromium", "edge", "firefox".
  * @return {string} Generated manifest file.
  */
 exports.manifest = (browser) => {
-    assert(browser === "chromium" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge" || browser ==="firefox");
 
     const manifest = {
         "author": "Nano Core 2 contributors",
@@ -177,6 +183,49 @@ exports.manifest = (browser) => {
             const i = manifest.version.indexOf(".");
             manifest.version = manifest.version.substring(i + 1) + ".0";
         }
+    } else if (browser === "firefox") {
+        // TODO: Sidebar action seems to be back upstream
+        // https://github.com/gorhill/uBlock/commit/c5e3773a3c0480c6900db848c8755d6ec409933f
+        manifest.applications = {
+            "gecko": {
+                "id": exports.firefox_id,
+                "update_url": "https://raw.githubusercontent.com/LiCybora/NanoCoreFirefox/master/Extension%20Compiler/updates.json",                
+                "strict_min_version": "52.0"
+            }
+        };
+        manifest.browser_action.browser_style = false;
+        manifest.content_scripts[0].js = [
+            "js/vapi.js",
+            "js/vapi-client.js",
+            "js/vapi-usercss.js",
+            "js/vapi-usercss.real.js",
+            "js/contentscript.js"
+        ];
+        manifest.content_scripts[0].matches = [
+            "http://*/*",
+            "https://*/*",
+            "file://*/*"
+        ];
+        manifest.incognito = "spanning";
+        delete manifest.minimum_chrome_version;
+        delete manifest.optional_permissions;
+        delete manifest.options_page;
+        manifest.options_ui = {
+            "open_in_tab": true,
+            "page": "dashboard.html",
+            "browser_style": true
+        };
+        manifest.permissions = [
+            "contextMenus",
+            "privacy",
+            "storage",
+            "tabs",
+            "webNavigation",
+            "webRequest",
+            "webRequestBlocking",
+            "<all_urls>"
+        ];
+        delete manifest.storage;    
     }
 
     return JSON.stringify(manifest, null, 2);

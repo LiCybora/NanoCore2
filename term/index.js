@@ -288,7 +288,7 @@ cmd_handlers.set("mark", async () => {
  * All supported browsers.
  * @const {Array.<string>}
  */
-const browsers = ["chromium", "edge"];
+const browsers = ["chromium", "edge", "firefox"];
 
 /*****************************************************************************/
 

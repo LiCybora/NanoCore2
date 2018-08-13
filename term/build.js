@@ -36,6 +36,7 @@ const crypto = require("crypto");
 const fs = require("fs-extra");
 const path = require("path");
 const syntax = require("./syntax.js");
+const del = require("del");
 
 /**
  * Optional modules.
@@ -43,6 +44,7 @@ const syntax = require("./syntax.js");
  */
 let edge = null;
 let store = null;
+let addon = null;
 
 /**
  * Build data.
@@ -153,10 +155,10 @@ exports.edge_shim = "../Edgyfy/edgyfy.js";
 /**
  * Build Nano Core 2.
  * @function
- * @param {Enum} browser - One of "chromium", "edge".
+ * @param {Enum} browser - One of "chromium", "edge", "firefox".
  */
 exports.build_core = async (browser) => {
-    assert(browser === "chromium" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     const output = r("./build", browser);
     await fs.mkdirp(output);
@@ -178,6 +180,21 @@ exports.build_core = async (browser) => {
         f(r(src, "platform/chromium"), ".js", false),
     );
 
+    if (browser === "firefox") {
+         // Modded 2018-06-27: keep them here for easier highlight used script
+        await del(output + "/js/vapi-usercss.pseudo.js");
+        await del(output + "/js/options_ui.js");
+        await del(output + "/options_ui.html");
+
+        await fs.copy(
+            r(src, "platform/firefox"), r(output, "js"),
+            f(r(src, "platform/firefox"), ".js"),
+        );
+        await fs.copy(
+            r(src, "platform/firefox"), r(output),
+            f(r(src, "platform/firefox"), ".js", false),
+        );
+   }
     await fs.copy(r("./src/fonts"), r(output, "css/fonts"));
     await fs.copy(r("./src/js"), r(output, "js"));
     await fs.copy(r("./src/ace"), r(output, "lib/ace"));
@@ -198,10 +215,10 @@ exports.build_core = async (browser) => {
 /**
  * Build filters.
  * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
+ * @param {Enum} browser - One of "chromium", "edge", "firefox".
  */
 exports.build_filters = async (browser) => {
-    assert(browser === "chromium" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     const output = r("./build", browser, "assets");
     await fs.mkdirp(output);
@@ -217,10 +234,10 @@ exports.build_filters = async (browser) => {
 /**
  * Build web accessible resources.
  * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
+ * @param {Enum} browser - One of "chromium", "edge", "firefox".
  */
 exports.build_resources = async (browser) => {
-    assert(browser === "chromium" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     const output = r("./build", browser, "web_accessible_resources");
     await fs.mkdirp(output);
@@ -368,10 +385,10 @@ exports.build_resources = async (browser) => {
 /**
  * Build locale files.
  * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
+ * @param {Enum} browser - One of "chromium", "edge", "firefox".
  */
 exports.build_locale = async (browser) => {
-    assert(browser === "chromium" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     const output = r("./build", browser, "_locales");
     await fs.mkdirp(output);
@@ -473,9 +490,11 @@ exports.build_locale = async (browser) => {
             }
 
             if (key === "nano_d_about_based_on") {
-                const based_on = data.based_on;
+                let based_on = data.based_on;
                 assert(typeof based_on === "string");
-
+                if (browser === "firefox") {
+                    based_on = based_on.replace(" UserCSS/disabled", "");
+                }
                 result[key].message = result[key].message
                     .replace("{{@data}}", based_on);
             }
@@ -510,10 +529,10 @@ exports.build_locale = async (browser) => {
 /**
  * Test the build result.
  * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
+ * @param {Enum} browser - One of "chromium", "edge", "firefox".
  */
 exports.test = async (browser) => {
-    assert(browser === "chromium" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     await syntax.validate_dir(r("./build", browser));
 };
@@ -521,10 +540,10 @@ exports.test = async (browser) => {
 /**
  * Create ZIP package.
  * @async @function
- * @param {Enum} browser - One of "chromium", "edge".
+ * @param {Enum} browser - One of "chromium", "edge", "firefox".
  */
 exports.pack = async (browser) => {
-    assert(browser === "chromium" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     const in_dir = r("./build", browser);
     const out_file = in_dir + ".zip";
@@ -539,7 +558,7 @@ exports.pack = async (browser) => {
  * @param {Term} term - Terminal for child process.
  */
 exports.publish = async (browser, term) => {
-    assert(browser === "chromium" || browser === "edge");
+    assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     const input = r("./build", browser + ".zip");
 
@@ -565,6 +584,11 @@ exports.publish = async (browser, term) => {
 
         term.write_line("APPX package created. Automatic publishing of Edge " +
             "extensions is not yet implemented.");
+    } else if (browser === "firefox") {
+        addon = require("./addon.js");
+
+        await addon.publish(input, data.version, data.firefox_id, "./build", term);
+
     }
 };
 
