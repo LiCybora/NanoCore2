@@ -1,13 +1,17 @@
-# Nano Core 2
+# Nano Core 2 for Firefox (Unofficial)
 
-Restarting fresh
+Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
 Upstream commit pin: `a20498b5c02b6e55e32ffe5ede829249cbdedeac` or `1.16.15rc0`
 
+**WARNING: This is NOT official Firefox port to Nano Core 2 Project.**
+
+The official project is on [here](https://github.com/NanoAdblocker/NanoCore2).
+
 **Please submit issues to the
-[Nano Core issues tracker](https://github.com/NanoAdblocker/NanoCore/issues).**
+[Nano Core issues tracker](https://github.com/LiCybora/NanoCoreFirefox/issues).**
 
 ## Localization
 
@@ -22,7 +26,7 @@ Your language is not listed? Submit an issue to let me know.
 
 1. Install latest version of Git and Node.js.
 2. In an appropriate directory, run:
-   - `git clone --depth 1 https://github.com/NanoAdblocker/NanoCore2.git`
+   - `git clone --depth 1 https://github.com/LiCybora/NanoCore2.git`
    - `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
    - `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
 3. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an

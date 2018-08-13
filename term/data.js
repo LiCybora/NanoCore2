@@ -208,6 +208,7 @@ exports.manifest = (browser) => {
             "https://*/*",
             "file://*/*"
         ];
+        // TODO: Remove when Firefox properly support split mode
         manifest.incognito = "spanning";
         delete manifest.minimum_chrome_version;
         delete manifest.optional_permissions;
