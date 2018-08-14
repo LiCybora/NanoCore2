@@ -393,6 +393,22 @@ cmd_handlers.set("make", async () => {
     term.ready();
 });
 
+// Mod: allow building for only one browser.
+for (const b of browsers) {
+    cmd_handlers.set("make " + b, async () => {
+        busy = true;
+
+        try {
+            await make_one(b);
+        } catch (err) {
+            term.write_line(err.stack);
+        }
+
+        busy = false;
+        term.ready();
+    });
+}
+
 cmd_handlers.set("pack", async () => {
     busy = true;
 
@@ -407,6 +423,24 @@ cmd_handlers.set("pack", async () => {
     busy = false;
     term.ready();
 });
+
+// Mod: allow packing for only one browser.
+for (const b of browsers) {
+    cmd_handlers.set("pack " + b, async () => {
+        busy = true;
+
+        try {
+            await make_one(b);
+            await test_one(b);
+            await pack_one(b);
+        } catch (err) {
+            term.write_line(err.stack);
+        }
+
+        busy = false;
+        term.ready();
+    });
+}
 
 cmd_handlers.set("publish", async () => {
     busy = true;
