@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `a20498b5c02b6e55e32ffe5ede829249cbdedeac` or `1.16.15rc0`
+Upstream commit pin: `de65fad273a3c6f62c4aff043cfe110262241e5a` or `1.16.16`
 
 **WARNING: This is NOT official Firefox port to Nano Core 2 Project.**
 
