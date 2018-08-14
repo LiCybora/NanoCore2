@@ -37,6 +37,10 @@ everything.
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
 
+## Group `60`: Shortcut Changes
+
+`60_0_mac_shortcut`: Fix Mac computer fail recording and using shortcut. 
+
 ## Group `90`: Other Changes
 
 `90_0_micro_optimizations.patch`: Minor optimizations and typo fixes.
