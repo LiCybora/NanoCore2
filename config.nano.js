@@ -76,6 +76,8 @@
 
             "./patches/30_0_link_resources.patch",
 
+            "./patches/60_0_mac_shortcut.patch",
+
             "./patches/90_0_micro_optimizations.patch",
             "./patches/90_1_warn_unsaved.patch",
 
