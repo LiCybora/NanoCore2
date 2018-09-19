@@ -44,8 +44,8 @@
     "description": "The cache control strip name"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Toggle the firewall pane",
-    "description": "Tooltip for toggle firewall pane button"
+    "message": "Toggle the overview panel",
+    "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
   },
   "nano_p_refresh_button": {
     "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
@@ -160,7 +160,7 @@
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Element remove rules with AdGuard syntax are not yet supported.",
+    "message": "Element remove rules with AdGuard syntax are not yet supported, use '##^' instead.",
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {

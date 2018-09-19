@@ -13,8 +13,8 @@ default to a monospace font.
 
 ## Group `10`: Undo Regression
 
-`10_0_user_css.patch`: Disable UserCSS, this will unbreak the DOM inspector of
-the Logger.
+`10_0_user_css.patch`: Disable UserCSS. This will unbreak the DOM inspector of
+the Logger on Chromium and Edge, and cosmetic filtering on Edge.
 
 ## Group `20`: Minor Behavior Changes
 
@@ -33,6 +33,9 @@ everything.
 
 `20_5_whitelist_style.patch`: Change highlighting style of whitelist editor.
 
+`20_6_warn_unsaved.patch`: Warn for unsaved changed in dashboard. Falls in this
+category because a pull request is opened upstream.
+
 ## Group `30`: User Interface Changes
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
@@ -44,6 +47,3 @@ everything.
 ## Group `90`: Other Changes
 
 `90_0_micro_optimizations.patch`: Minor optimizations and typo fixes.
-
-`90_1_warn_unsaved.patch`: Warn for unsaved changed in dashboard. Falls in this
-category because a pull request is opened upstream.

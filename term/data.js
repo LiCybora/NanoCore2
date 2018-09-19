@@ -38,13 +38,20 @@ const assert = require("assert");
  * Version number.
  * @const {string}
  */
-exports.version = "1.0.0.64";
+exports.version = "1.0.0.67";
 
 /**
  * The based on string.
  * @const {string}
  */
-exports.based_on = "uBlock Origin Version/1.16.16 Commit/de65fad UserCSS/disabled";
+exports.based_on = [
+    "uBlock Origin",
+
+    "Version/1.16.21rc0+2",
+    "Commit/6815c85",
+
+    "UserCSS/disabled",
+].join(" ");
 
 /**
  * Chromium extension identification string.
@@ -128,7 +135,7 @@ exports.manifest = (browser) => {
         },
         "incognito": "split",
         "manifest_version": 2,
-        "minimum_chrome_version": "46.0", // Spread operator
+        "minimum_chrome_version": "51.0",
         "name": "Nano Adblocker",
         "optional_permissions": [
             "file:///*",
