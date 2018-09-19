@@ -1,71 +1,33 @@
-diff --git a/src/_locales/en/messages.json b/src/_locales/en/messages.json
-index 58e9d7a2..a32f17f8 100644
---- a/src/_locales/en/messages.json
-+++ b/src/_locales/en/messages.json
-@@ -11,6 +11,10 @@
-     "message":"uBlock₀ — Dashboard",
-     "description":"English: uBlock₀ — Dashboard"
-   },
-+  "dashboardUnsavedWarning":{
-+    "message":"Leave tab?\nChanges you made will not be saved.",
-+    "description":"warning message for unsaved changes"
-+  },
-   "settingsPageName":{
-     "message":"Settings",
-     "description":"appears as tab name in dashboard"
-diff --git a/src/js/1p-filters.js b/src/js/1p-filters.js
-index 73682aed..84502169 100644
---- a/src/js/1p-filters.js
-+++ b/src/js/1p-filters.js
-@@ -25,6 +25,10 @@
- 
- /******************************************************************************/
- 
-+window.hasUnsavedChanges = false;
-+
-+/******************************************************************************/
-+
- (function() {
- 
- /******************************************************************************/
-@@ -54,6 +58,7 @@ function userFiltersChanged(changed) {
-     }
-     uDom.nodeFromId('userFiltersApply').disabled = !changed;
-     uDom.nodeFromId('userFiltersRevert').disabled = !changed;
-+    hasUnsavedChanges = changed;
- }
- 
- /******************************************************************************/
 diff --git a/src/js/3p-filters.js b/src/js/3p-filters.js
-index beee4574..b4d5d1dc 100644
+index 2094f520..7dfac468 100644
 --- a/src/js/3p-filters.js
 +++ b/src/js/3p-filters.js
 @@ -25,6 +25,10 @@
  
  /******************************************************************************/
  
-+window.hasUnsavedChanges = false;
++window.nano_has_unsaved_changes = false;
 +
 +/******************************************************************************/
 +
  (function() {
  
  /******************************************************************************/
-@@ -316,9 +320,11 @@ var renderFilterLists = function(soft) {
+@@ -309,9 +313,11 @@ var renderFilterLists = function(soft) {
  /******************************************************************************/
  
  var renderWidgets = function() {
-+    var isClean = filteringSettingsHash === hashFromCurrentFromSettings();
-+    hasUnsavedChanges = !isClean;
++    var nano_is_clean = filteringSettingsHash === hashFromCurrentFromSettings();
++    nano_has_unsaved_changes = !nano_is_clean;
      uDom('#buttonApply').toggleClass(
          'disabled',
 -        filteringSettingsHash === hashFromCurrentFromSettings()
-+        isClean
++        nano_is_clean
      );
      uDom('#buttonPurgeAll').toggleClass(
          'disabled',
 diff --git a/src/js/dashboard.js b/src/js/dashboard.js
-index d038c5d0..369f4280 100644
+index d038c5d0..5ec05c8b 100644
 --- a/src/js/dashboard.js
 +++ b/src/js/dashboard.js
 @@ -62,7 +62,10 @@ let onTabClickHandler = function(e) {
@@ -75,29 +37,30 @@ index d038c5d0..369f4280 100644
 -    if ( url !== window.location.href ) {
 +    if (
 +        url !== window.location.href &&
-+        ( !checkUnsavedChanges() || confirm(checkUnsavedChanges.msg) )
++        ( !nano_check_unsaved_changes() || confirm(nano_unsaved_warning_msg) )
 +    ) {
          window.location.replace(url);
          loadDashboardPanel();
      }
-@@ -81,4 +84,31 @@ loadDashboardPanel();
+@@ -81,4 +84,32 @@ loadDashboardPanel();
  
  /******************************************************************************/
  
-+let checkUnsavedChanges = function() {
-+    const iframe = checkUnsavedChanges.iframe;
++let nano_content_iframe = document.getElementById('iframe');
++let nano_unsaved_warning_msg = vAPI.i18n('nano_d_unsaved_warning');
++
++let nano_check_unsaved_changes = function() {
++    const iframe = nano_content_iframe;
 +    if ( iframe.src == '' ) {
 +        return false;
 +    } else {
-+        return iframe.contentWindow.hasUnsavedChanges === true;
++        return iframe.contentWindow.nano_has_unsaved_changes === true;
 +    }
 +};
-+checkUnsavedChanges.iframe = document.getElementById('iframe');
-+checkUnsavedChanges.msg = vAPI.i18n('dashboardUnsavedWarning');
 +
 +addEventListener('beforeunload', function(e) {
-+    if ( checkUnsavedChanges() ) {
-+        const msg = checkUnsavedChanges.msg;
++    if ( nano_check_unsaved_changes() ) {
++        const msg = nano_check_unsaved_changes.msg;
 +        // Old standard
 +        e.returnValue = msg;
 +        // New standard
@@ -113,25 +76,25 @@ index d038c5d0..369f4280 100644
 +
  })();
 diff --git a/src/js/dyna-rules.js b/src/js/dyna-rules.js
-index eb1d704f..36ee7dd5 100644
+index 8ffe536b..09670b26 100644
 --- a/src/js/dyna-rules.js
 +++ b/src/js/dyna-rules.js
 @@ -25,6 +25,10 @@
  
  /******************************************************************************/
  
-+window.hasUnsavedChanges = false;
++window.nano_has_unsaved_changes = false;
 +
 +/******************************************************************************/
 +
  (function() {
  
  /******************************************************************************/
-@@ -339,6 +343,7 @@ var onTextChanged = (function() {
+@@ -348,6 +352,7 @@ var onTextChanged = (function() {
              input.setAttribute('disabled', '');
              CodeMirror.commands.save = editSaveHandler;
          }
-+        hasUnsavedChanges = !isClean;
++        nano_has_unsaved_changes = !isClean;
      };
  
      return function(now) {
@@ -161,14 +124,14 @@ index dc85e6b2..553b4b34 100644
  
  })();
 diff --git a/src/js/whitelist.js b/src/js/whitelist.js
-index 13456f01..db7e9afa 100644
+index 13456f01..dd6980c9 100644
 --- a/src/js/whitelist.js
 +++ b/src/js/whitelist.js
 @@ -25,6 +25,10 @@
  
  /******************************************************************************/
  
-+window.hasUnsavedChanges = false;
++window.nano_has_unsaved_changes = false;
 +
 +/******************************************************************************/
 +
@@ -179,7 +142,7 @@ index 13456f01..db7e9afa 100644
      uDom.nodeFromId('whitelistApply').disabled = !changed || bad;
      uDom.nodeFromId('whitelistRevert').disabled = !changed;
      CodeMirror.commands.save = changed && !bad ? applyChanges : noopFunc;
-+    hasUnsavedChanges = changed;
++    nano_has_unsaved_changes = changed;
  };
  
  cmEditor.on('changes', whitelistChanged);

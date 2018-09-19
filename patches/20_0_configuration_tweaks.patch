@@ -1,5 +1,5 @@
 diff --git a/src/js/assets.js b/src/js/assets.js
-index 4b261a46..fbe4a618 100644
+index d5e3a4f5..db26ff33 100644
 --- a/src/js/assets.js
 +++ b/src/js/assets.js
 @@ -285,7 +285,7 @@ var registerAssetSource = function(assetKey, dict) {
@@ -21,10 +21,10 @@ index 4b261a46..fbe4a618 100644
      updaterUpdated = [],
      updaterFetched = new Set(),
 diff --git a/src/js/background.js b/src/js/background.js
-index 2fd1db00..f2856f8b 100644
+index 9e5f59cd..23f02924 100644
 --- a/src/js/background.js
 +++ b/src/js/background.js
-@@ -40,12 +40,12 @@ var µBlock = (function() { // jshint ignore:line
+@@ -40,13 +40,13 @@ var µBlock = (function() { // jshint ignore:line
  
      var hiddenSettingsDefault = {
          assetFetchTimeout: 30,
@@ -32,6 +32,7 @@ index 2fd1db00..f2856f8b 100644
 -        autoUpdatePeriod: 7,
 +        autoUpdateAssetFetchPeriod: 300,
 +        autoUpdatePeriod: 4,
+         cacheStorageCompression: true,
          debugScriptlets: false,
          ignoreRedirectFilters: false,
          ignoreScriptInjectFilters: false,
@@ -40,7 +41,7 @@ index 2fd1db00..f2856f8b 100644
          nanoIgnoreThirdPartyWhitelist: false,
          nanoMakeUserFiltersPrivileged: false,
          popupFontSize: 'unset',
-@@ -58,6 +58,7 @@ var µBlock = (function() { // jshint ignore:line
+@@ -60,6 +60,7 @@ var µBlock = (function() { // jshint ignore:line
          'chrome-extension-scheme',
          'chrome-scheme',
          'moz-extension-scheme',
@@ -49,13 +50,13 @@ index 2fd1db00..f2856f8b 100644
          'vivaldi-scheme',
          'wyciwyg-scheme',   // Firefox's "What-You-Cache-Is-What-You-Get"
 diff --git a/src/js/start.js b/src/js/start.js
-index 220da630..9d802ee0 100644
+index ab157e58..54fcb726 100644
 --- a/src/js/start.js
 +++ b/src/js/start.js
-@@ -166,13 +166,6 @@ var onUserSettingsReady = function(fetched) {
-     µb.permanentURLFiltering.fromString(fetched.urlFilteringString);
+@@ -187,13 +187,6 @@ var onUserSettingsReady = function(fetched) {
      µb.sessionURLFiltering.assign(µb.permanentURLFiltering);
-     µb.hnSwitches.fromString(fetched.hostnameSwitchesString);
+     µb.permanentSwitches.fromString(fetched.hostnameSwitchesString);
+     µb.sessionSwitches.assign(µb.permanentSwitches);
 -
 -    // https://github.com/gorhill/uBlock/issues/1892
 -    // For first installation on a battery-powered device, disable generic
@@ -66,19 +67,19 @@ index 220da630..9d802ee0 100644
  };
  
  /******************************************************************************/
-@@ -254,6 +247,7 @@ var onSelectedFilterListsLoaded = function() {
+@@ -275,6 +268,7 @@ var onSelectedFilterListsLoaded = function() {
          ].join('\n'),
          'urlFilteringString': '',
          'hostnameSwitchesString': [
 +            'no-csp-reports: * true',
-             'no-large-media: behind-the-scene false'
+             'no-large-media: behind-the-scene false',
+             'no-scripting: behind-the-scene false'
          ].join('\n'),
-         'lastRestoreFile': '',
 diff --git a/src/js/storage.js b/src/js/storage.js
-index fb063f41..9d553579 100644
+index ac5ee4ec..686898eb 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
-@@ -1275,7 +1275,7 @@
+@@ -1282,7 +1282,7 @@
              next = 0;
              var µb = µBlock;
              µb.assets.updateStart({
@@ -87,7 +88,7 @@ index fb063f41..9d553579 100644
              });
          }, updateDelay);
      };
-@@ -1371,7 +1371,7 @@
+@@ -1378,7 +1378,7 @@
              this.loadFilterLists();
          }
          if ( this.userSettings.autoUpdate ) {

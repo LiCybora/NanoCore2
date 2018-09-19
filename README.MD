@@ -4,11 +4,12 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `de65fad273a3c6f62c4aff043cfe110262241e5a` or `1.16.16`
+Upstream commit pin: `6815c85521142a34477f8a347da88b195c015088` or `1.16.21rc0+2`
 
 **WARNING: This is NOT official Firefox port to Nano Core 2 Project.**
 
 The official project is on [here](https://github.com/NanoAdblocker/NanoCore2).
+=======
 
 **Please submit issues to the
 [Nano Core issues tracker](https://github.com/LiCybora/NanoCoreFirefox/issues).**
@@ -70,9 +71,11 @@ exit     Exit the terminal
 
 ## Checklist
 
-- Pull filters update
-- If needed, pull upstream update and update about string
-- If needed, build and pull locale update
+- Pull filters updates
+- If needed, pull upstream updates then update about string and commit pin
+- If needed, pull upstream updates to `assets.json` and `manifest.json`
+- If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
+- If needed, build and pull locale updates
 - Bump version number
 - Add tags to repositories, and upload packages
 - Upload packages to extension stores
