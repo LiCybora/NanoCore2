@@ -215,6 +215,24 @@ const diff = async (p) => {
 };
 
 /*****************************************************************************/
+cmd_handlers.set("init", async () => {
+    busy = true;
+
+    try {
+        await fs.remove(config.Source);
+
+        // Need to wait a bit in between or there could be problems on Windows
+        await sleep(100);
+
+        await fs.copy('../ublock', config.Source);
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+    term.ready();
+});
+
 
 cmd_handlers.set("reset", async () => {
     busy = true;
