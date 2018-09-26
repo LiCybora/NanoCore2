@@ -57,7 +57,7 @@ mark     Create a patch based on the difference between tip of applied patches
 make     Build extension from development environment
 pack     Build, test, then package the extension
 publish  Build, test, package, then publish the extension
-         Optionally pass browser name to publish for only one browser
+         Optionally pass browser name to make/pack/publish for only one browser
 clean    Remove all build files
 
 lmake    Build English locale file from locale definition
