@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `6815c85521142a34477f8a347da88b195c015088` or `1.16.21rc0+2`
+Upstream commit pin: `ff58107dac3a32607f8113e39ed5015584506813` or `1.17.0`
 
 **WARNING: This is NOT official Firefox port to Nano Core 2 Project.**
 
@@ -34,9 +34,9 @@ Your language is not listed? Submit an issue to let me know.
    appropriate directory to get upstream. Check out a tag or commit as
    appropriate.
 4. In Nano Core 2 repository:
-   - Navigate to `./term` directory and run `npm install`.
-   - Update `./config.json` as appropriate.
-   - Run `node ./term` (in repository root) to open Nano Core 2 Terminal.
+   - Navigate to `/term` directory and run `npm install`.
+   - Update `/config.json` as appropriate.
+   - Run `node ./term` to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
 
