@@ -4,6 +4,7 @@
     "updateAfter": 5,
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoCore2/master/src/assets.json",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoCore2/master/src/assets.json",
       "assets/assets.json"
     ]
   },
@@ -12,7 +13,7 @@
     "updateAfter": 14,
     "contentURL": [
       "https://publicsuffix.org/list/public_suffix_list.dat",
-      "https://cdn.rawgit.com/publicsuffix/list/master/public_suffix_list.dat",
+      "https://gitcdn.xyz/repo/publicsuffix/list/master/public_suffix_list.dat",
       "assets/ThirdParty/PublicSuffix.dat"
     ]
   },
@@ -29,7 +30,7 @@
     "updateAfter": 5,
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoResources.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoResources.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoResources.txt",
       "assets/NanoFilters/NanoResources.txt"
     ]
   },
@@ -41,7 +42,7 @@
     "title": "Nano filters",
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoBase.txt",
       "assets/NanoFilters/NanoBase.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
@@ -53,7 +54,7 @@
     "off": true,
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
       "assets/NanoFilters/NanoAnnoyance.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
@@ -64,7 +65,7 @@
     "title": "Nano filters – Whitelist",
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoWhitelist.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoWhitelist.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoWhitelist.txt",
       "assets/NanoFilters/NanoWhitelist.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
@@ -75,9 +76,8 @@
     "title": "Nano Defender Integration",
     "off": true,
     "contentURL": [
-      "https://raw.githubusercontent.com/jspenguin2017/uBlockProtector/master/uBlockProtectorList.txt",
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoMirror/NanoDefender.txt",
-      "https://cdn.rawgit.com/NanoAdblocker/NanoFilters/master/NanoMirror/NanoDefender.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoMirror/NanoDefender.txt",
       "assets/ThirdParty/NanoDefender.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues",
@@ -241,10 +241,10 @@
     "nanoUpdateAfterDefault": 5,
     "title": "Malware Domain List",
     "contentURL": [
-      "https://cdn.rawgit.com/NanoMeow/MDLMirror/master/hosts.txt",
+      "https://gitcdn.xyz/repo/NanoMeow/MDLMirror/master/hosts.txt",
       "https://raw.githubusercontent.com/NanoMeow/MDLMirror/master/hosts.txt",
       "https://www.malwaredomainlist.com/hostslist/hosts.txt",
-      "https://cdn.rawgit.com/NanoMeow/MDLMirror/master/filter.txt",
+      "https://gitcdn.xyz/repo/NanoMeow/MDLMirror/master/filter.txt",
       "https://raw.githubusercontent.com/NanoMeow/MDLMirror/master/filter.txt",
       "assets/ThirdParty/MalwareDomain0.txt"
     ]
@@ -502,7 +502,7 @@
     "title": "IRN: Adblock-Iran",
     "lang": "fa",
     "contentURL": [
-      "https://cdn.rawgit.com/farrokhi/adblock-iran/master/filter.txt",
+      "https://gitcdn.xyz/repo/farrokhi/adblock-iran/master/filter.txt",
       "https://raw.githubusercontent.com/farrokhi/adblock-iran/master/filter.txt"
     ],
     "supportURL": "https://github.com/farrokhi/adblock-iran"
