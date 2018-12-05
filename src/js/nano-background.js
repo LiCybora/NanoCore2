@@ -30,7 +30,7 @@ var nano = nano || {};
 
 /*****************************************************************************/
 
-nano.ub = window["\xB5Block"];
+nano.ub = window.__ublock__;
 
 /*****************************************************************************/
 
@@ -105,7 +105,6 @@ nAPI.add_public_api_handler(nano.is_trusted_ext, nano.handle_public_api);
 
 nano.privileged_filters = new Set([
     "nano-filters",
-    "nano-timer",
     "nano-annoyance",
     "nano-whitelist",
     "nano-defender"
@@ -143,6 +142,11 @@ nano.CompileFlag.prototype.update = function (key) {
     );
     this.is_privileged = (
         nano.privileged_filters.has(key) ||
+        (
+            !this.first_party &&
+            nano.ub.userSettings.advancedUserEnabled &&
+            nano.ub.hiddenSettings.nanoMakeThirdPartyFiltersPrivileged
+        ) ||
         (
             this.first_party &&
             nano.ub.userSettings.advancedUserEnabled &&
@@ -302,7 +306,10 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
             {
                 const token = data[0];
 
-                if (!nano.ub.redirectEngine.resources.has(token)) {
+                if (
+                    token !== "none" &&
+                    !nano.ub.redirectEngine.resources.has(token)
+                ) {
                     nano.flintw(
                         "nano_l_filter_resource_not_found",
                         ["{{res}}", token]

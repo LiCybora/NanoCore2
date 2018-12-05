@@ -1,10 +1,10 @@
 {
   "assets.json": {
     "content": "internal",
-    "updateAfter": 5,
+    "updateAfter": 1,
     "contentURL": [
-      "https://raw.githubusercontent.com/NanoAdblocker/NanoCore2/master/src/assets.json",
       "https://gitcdn.xyz/repo/NanoAdblocker/NanoCore2/master/src/assets.json",
+      "https://raw.githubusercontent.com/NanoAdblocker/NanoCore2/master/src/assets.json",
       "assets/assets.json"
     ]
   },
@@ -21,7 +21,7 @@
     "content": "internal",
     "updateAfter": 5,
     "contentURL": [
-      "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resources.txt",
+      "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoMirror/uBlockResources.txt",
       "assets/ThirdParty/uBlockResources.txt"
     ]
   },
@@ -54,8 +54,7 @@
     "off": true,
     "contentURL": [
       "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
-      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
-      "assets/NanoFilters/NanoAnnoyance.txt"
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt"
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
   },
@@ -222,7 +221,7 @@
     "content": "filters",
     "group": "privacy",
     "off": true,
-    "title": "Fanboy’s Enhanced Tracking List",
+    "title": "Fanboy's Enhanced Tracking List",
     "contentURL": "https://www.fanboy.co.nz/enhancedstats.txt",
     "supportURL": "https://github.com/ryanbr/fanboy-adblock/issues"
   },
@@ -266,7 +265,7 @@
     "group": "malware",
     "off": true,
     "title": "Spam404",
-    "contentURL": "https://raw.githubusercontent.com/Dawsey21/Lists/master/adblock-list.txt",
+    "contentURL": "https://raw.githubusercontent.com/Spam404/lists/master/adblock-list.txt",
     "supportURL": "http://www.spam404.com/"
   },
 
@@ -275,7 +274,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Adguard’s Annoyance List",
+    "title": "Adguard's Annoyance List",
     "contentURL": "https://filters.adtidy.org/extension/ublock/filters/14.txt",
     "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
     "instructionURL": "https://kb.adguard.com/en/general/adguard-ad-filters"
@@ -284,7 +283,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Fanboy’s Anti-Thirdparty Social (see warning inside list)",
+    "title": "Anti-Facebook List",
     "contentURL": "https://fanboy.co.nz/fanboy-antifacebook.txt",
     "supportURL": "https://github.com/ryanbr/fanboy-adblock/issues"
   },
@@ -292,7 +291,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Fanboy’s Annoyance List",
+    "title": "Fanboy's Annoyance List",
     "contentURL": [
       "https://easylist-downloads.adblockplus.org/fanboy-annoyance.txt",
       "https://easylist.to/easylist/fanboy-annoyance.txt",
@@ -304,7 +303,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Fanboy’s Cookiemonster List",
+    "title": "Fanboy's Cookie List",
     "contentURL": "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
     "supportURL": "https://github.com/ryanbr/fanboy-adblock/issues"
   },
@@ -312,7 +311,7 @@
     "content": "filters",
     "group": "social",
     "off": true,
-    "title": "Fanboy’s Social Blocking List",
+    "title": "Fanboy's Social Blocking List",
     "contentURL": [
       "https://easylist-downloads.adblockplus.org/fanboy-social.txt",
       "https://easylist.to/easylist/fanboy-social.txt",
@@ -327,7 +326,7 @@
     "group": "multipurpose",
     "updateAfter": 5,
     "off": true,
-    "title": "Dan Pollock’s hosts file",
+    "title": "Dan Pollock's hosts file",
     "contentURL": "https://someonewhocares.org/hosts/hosts",
     "supportURL": "https://someonewhocares.org/hosts/"
   },
@@ -336,7 +335,7 @@
     "group": "multipurpose",
     "updateAfter": 5,
     "off": true,
-    "title": "hpHosts’ Ad and tracking servers",
+    "title": "hpHosts' Ad and tracking servers",
     "contentURL": "https://hosts-file.net/ad_servers.txt",
     "supportURL": "https://hosts-file.net/"
   },
@@ -354,7 +353,7 @@
     "group": "multipurpose",
     "updateAfter": 5,
     "nanoUpdateAfterDefault": 5,
-    "title": "Peter Lowe’s Ad and tracking server list",
+    "title": "Peter Lowe's Ad and tracking server list",
     "contentURL": [
       "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=1&mimetype=plaintext",
       "assets/ThirdParty/PeterLowe.txt"
@@ -451,10 +450,10 @@
     "content": "filters",
     "group": "regions",
     "off": true,
-    "title": "FIN: Finnish Addition to Easylist",
+    "title": "FIN: Adblock List for Finland",
     "lang": "fi",
-    "contentURL": "https://adb.juvander.net/Finland_adb.txt",
-    "supportURL": "https://www.juvander.fi/AdblockFinland"
+    "contentURL": "https://raw.githubusercontent.com/finnish-easylist-addition/finnish-easylist-addition/master/Finland_adb.txt",
+    "supportURL": "https://github.com/finnish-easylist-addition/finnish-easylist-addition"
   },
   "FRA-0": {
     "content": "filters",
