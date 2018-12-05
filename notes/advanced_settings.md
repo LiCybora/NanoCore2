@@ -42,14 +42,29 @@ Default: `false`
 
 When set to `true`, Nano Adblocker will discard exception and `badfilter` rules
 from all filter lists except `My filters` when compiling filters **in the
-future**. Similarly, setting this toggle to `false` **or turning off advanced
+future**. Similarly, setting this switch to `false` **or turning off advanced
 mode** will **not** cause discarded filters to be immediately restored.
 
 Negated domains are sometimes transformed into exception rules, and they will
 not be affected for now. This can change in the future.
 
-Setting this toggle to `true` **will definitely** break *many* websites and
+Setting this switch to `true` **will definitely** break *many* websites and
 you are to fix them **by yourself**.
+
+### `nanoMakeThirdPartyFiltersPrivileged` switch
+
+Available since 1.0.0.79
+
+Default: `false`
+
+When set to `true`, Nano Adblocker will treat all third party filter lists as
+privileged when compiling filters **in the future**. Similarly, setting
+this switch to `false` **or turning off advanced mode** will **not** cause
+privileged filters to be immediately removed.
+
+Privileged filter lists have access to privileged resources. Name of
+privileged resources always start with `nanop-`. Nano Adblocker's own filters
+(Nano filters) are always privileged.
 
 ### `nanoMakeUserFiltersPrivileged` switch
 
@@ -57,11 +72,11 @@ Available since 1.0.0.22
 
 Default: `false`
 
-When set to `true`, Nano Adblocker will treat user filters as a privileged
-filter when compiling filters **in the future**. Similarly, setting this
-toggle to `false` **or turning off advanced mode** will **not** cause
-privileged filters to be immediately removed.
+When set to `true`, Nano Adblocker will treat `My filters` as privileged when
+compiling filters **in the future**. Similarly, setting this switch to `false`
+**or turning off advanced mode** will **not** cause privileged filters to be
+immediately removed.
 
-Privileged filters have access to privileged resources. Name of privileged
-resources always start with `nanop-`. Nano Adblocker's own filters
+Privileged filter lists have access to privileged resources. Name of
+privileged resources always start with `nanop-`. Nano Adblocker's own filters
 (Nano filters) are always privileged.

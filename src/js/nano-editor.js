@@ -30,6 +30,16 @@ var nano = nano || {};
 
 /*****************************************************************************/
 
+const safeCompileRegExp = (str, fallback) => {
+    try {
+        return new RegExp(str);
+    } catch (err) {
+        return fallback;
+    }
+};
+
+/*****************************************************************************/
+
 ace.define("ace/mode/nano_filters", function (require, exports, module) {
     const oop = ace.require("ace/lib/oop");
     const unicode = require("ace/unicode");
@@ -351,13 +361,13 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 {
                     token: "keyword",
                     regex: new RegExp([
-                        "document",
                         "~?(?:" + [
                             "third-party",
                             "3p",
                             "first-party",
                             "1p"
                         ].join("|") + ")",
+                        "document",
                         "important",
                         "badfilter"
                     ].join("|"))
@@ -371,12 +381,11 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     regex: new RegExp([
                         "elemhide",
                         "generichide",
+                        "ghide",
                         "inline-font",
                         "inline-script",
                         "popunder",
-                        "popup",
-
-                        "ghide"
+                        "popup"
                     ].join("|"))
                 },
 
@@ -384,34 +393,35 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 {
                     // object-subrequest must be before object
                     token: "variable",
-                    regex: new RegExp("~?(?:" + [
-                        "css",
-                        "font",
-                        "frame",
-                        "image",
-                        "media",
-                        "object-subrequest",
-                        "object",
-                        "script",
-                        "stylesheet",
-                        "subdocument",
-                        "xhr",
-                        "xmlhttprequest",
-
-                        "iframe",
-                        "mp4"
-                    ].join("|") + ")")
+                    regex: new RegExp([
+                        "~?(?:" + [
+                            "css",
+                            "font",
+                            "image",
+                            "media",
+                            "object(?:-subrequest)?",
+                            "script",
+                            "stylesheet",
+                            "xhr",
+                            "xmlhttprequest"
+                        ].join("|") + ")",
+                        "i?frame",
+                        "mp4",
+                        "subdocument"
+                    ].join("|"))
                 },
 
                 // Special types
                 {
                     token: "variable",
                     regex: new RegExp([
-                        "beacon",
-                        "data",
-                        "other",
-                        "ping",
-                        "websocket"
+                        "~?(?:" + [
+                            "beacon",
+                            "other",
+                            "ping",
+                            "websocket"
+                        ].join("|") + ")",
+                        "data"
                     ].join("|"))
                 },
 
@@ -470,6 +480,15 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     token: "keyword.operator",
                     regex: /,/,
                     next: "options"
+                },
+
+                // Keywork "none"
+                {
+                    token: "keyword",
+                    regex: safeCompileRegExp(
+                        "(?<==)none(?=,|$)",
+                        /none(?=,|$)/
+                    )
                 },
 
                 // Redirect resource name (default)
@@ -583,7 +602,7 @@ nano.Editor = function (elem, highlight, readonly) {
 
         let avail_height = Math.floor(parent_rect.bottom - child_rect.top);
         if (avail_height < 1)
-            avail_height = 1
+            avail_height = 1;
 
         child_elem.style.height = avail_height.toString() + "px";
         this.editor.resize();

@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `ff58107dac3a32607f8113e39ed5015584506813` or `1.17.0`
+Upstream commit pin: `c3b0fd31f64bd7ffecdd282fb1208fe07aac3eb0` or `1.17.4`
 
 **WARNING: This is NOT official Firefox port to Nano Core 2 Project.**
 
@@ -27,16 +27,16 @@ Your language is not listed? Submit an issue to let me know.
 
 1. Install latest version of Git and Node.js.
 2. In an appropriate directory, run:
-   - `git clone --depth 1 https://github.com/LiCybora/NanoCore2.git`
-   - `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
-   - `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
+   1. `git clone --depth 1 https://github.com/LiCybora/NanoCore2.git`
+   2. `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
+   3. `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
 3. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
    appropriate directory to get upstream. Check out a tag or commit as
    appropriate.
 4. In Nano Core 2 repository:
-   - Navigate to `/term` directory and run `npm install`.
-   - Update `/config.json` as appropriate.
-   - Run `node ./term` to open Nano Core 2 Terminal.
+   1. Navigate to `/term` directory and run `npm install`.
+   2. Update `/config.json` as appropriate.
+   3. Run `node ./term` to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.
 
@@ -70,16 +70,38 @@ reload   Reload configuration data
 exit     Exit the terminal
 ```
 
-## Checklist
+## Version Update Checklist
 
-- Pull filters updates
-- If needed, pull upstream updates then update about string and commit pin
-- If needed, pull upstream updates to `assets.json` and `manifest.json`
-- If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
-- If needed, build and pull locale updates
-- Bump version number
-- Add tags to repositories, and upload packages
-- Upload packages to extension stores
+1.  Pull filters updates
+2.  If needed, pull upstream updates then update about string and commit pin
+3.  If needed, pull upstream updates to build scripts
+4.  If needed, pull upstream updates to `assets.json` and `manifest.json`
+5.  If needed, pull upstream updates to `1p-filters.js` and `asset-viewer.js`
+6.  If needed, build and pull locale updates
+7.  Bump version number
+8.  Test to make sure everything is working
+9.  Add tags to repositories, and upload packages
+10. Upload packages to extension stores
+
+## Subresource Integrity Incidence Response Protocol
+
+When there is a severe issue with the content of a subresource, an intervention
+can be easily placed with the help of
+[UltimateMirror](https://github.com/NanoMeow/UltimateMirror) and
+[MirrorEngine](https://github.com/NanoMeow/MirrorEngine):
+
+1. Lock the subresource in UltimateMirror
+2. Remove problematic content from UltimateMirror, if needed
+3. Update `assets.json` so the sanitized subresource will be loaded from
+   UltimateMirror
+
+Later, the intervention can be lifted as follows:
+
+1. Update `assets.json` as appropriate, the subresource should no longer be
+   loaded from UltimateMirror
+2. Wait a bit for cache to expire (takes about 10 minutes), then restart
+   MirrorEngine
+3. Unlock the subresource in UltimateMirror
 
 ## Tips
 
