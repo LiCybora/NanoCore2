@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `c3b0fd31f64bd7ffecdd282fb1208fe07aac3eb0` or `1.17.4`
+Upstream commit pin: `3dac43eab6096ad57ec372eb67cf9bd5bb012718` or `1.18.0`
 
 **WARNING: This is NOT official Firefox port to Nano Core 2 Project.**
 
@@ -82,6 +82,12 @@ exit     Exit the terminal
 8.  Test to make sure everything is working
 9.  Add tags to repositories, and upload packages
 10. Upload packages to extension stores
+
+## Version Update Watchlist
+
+These are the potential problems to look out for:
+
+1. Font Awesome related CSS changes
 
 ## Subresource Integrity Incidence Response Protocol
 

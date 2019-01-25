@@ -79,8 +79,6 @@
 
             "./patches/60_0_mac_shortcut.patch",
 
-            "./patches/90_0_micro_optimizations.patch",
-
             /*****************************************************************/
 
         ],
@@ -89,17 +87,17 @@
 
         Source: {
             Linux: "/tmp/uBlock/",
-            Win: "D:/!Temporary/uBlock/",
+            Win: "D:/A_Temporary/uBlock/",
         },
 
         Target: {
             Linux: "/tmp/NanoCore2DevEnv/",
-            Win: "D:/!Temporary/NanoCore2DevEnv/",
+            Win: "D:/A_Temporary/NanoCore2DevEnv/",
         },
 
         Output: {
             Linux: "/tmp/NanoCore2Latest.patch",
-            Win: "D:/!Temporary/NanoCore2Latest.patch",
+            Win: "D:/A_Temporary/NanoCore2Latest.patch",
         },
 
         /*********************************************************************/

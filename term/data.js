@@ -38,7 +38,7 @@ const assert = require("assert");
  * Version number.
  * @const {string}
  */
-exports.version = "1.0.0.81";
+exports.version = "1.0.0.85";
 
 /**
  * The based on string.
@@ -47,8 +47,8 @@ exports.version = "1.0.0.81";
 exports.based_on = [
     "uBlock Origin",
 
-    "Version/1.17.4",
-    "Commit/c3b0fd3",
+    "Version/1.18.0",
+    "Commit/3dac43e",
 
     "UserCSS/disabled",
 ].join(" ");
@@ -137,9 +137,6 @@ exports.manifest = (browser) => {
         "manifest_version": 2,
         "minimum_chrome_version": "51.0",
         "name": "Nano Adblocker",
-        "optional_permissions": [
-            "file:///*",
-        ],
         "options_ui": {
             "page": "dashboard.html",
             "open_in_tab": true,
