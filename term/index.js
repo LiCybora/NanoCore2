@@ -167,7 +167,7 @@ const exec_opt = () => {
 const apply = async (p) => {
     term.write_line("Applying " + p);
     await exec(0, "git", exec_opt(), "apply", p);
-}
+};
 
 /**
  * Commit current changes.
@@ -307,7 +307,11 @@ cmd_handlers.set("mark", async () => {
  * All supported browsers.
  * @const {Array.<string>}
  */
-const browsers = ["chromium", "edge", "firefox"];
+const browsers = [
+	"chromium", 
+	// "edge", 
+	"firefox",
+];
 
 /*****************************************************************************/
 
