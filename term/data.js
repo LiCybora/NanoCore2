@@ -196,7 +196,7 @@ exports.manifest = (browser) => {
         manifest.sidebar_action = {
             "default_title": "__MSG_statsPageName__",
             "default_panel": "logger-ui.html",
-            "default_icon": "img/128_on.png"
+            "default_icon": "img/128_on.png",
             "open_at_install": false
         },
         // https://github.com/gorhill/uBlock/commit/c5e3773a3c0480c6900db848c8755d6ec409933f
