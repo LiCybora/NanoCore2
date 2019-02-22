@@ -63,7 +63,7 @@ exports.chromium_id = "gabbbocakeomblphkmmnoamkioajlkfo";
  * Firefox extension identification string.
  * @const {string}
  */
-exports.firefox_id = "{0f929014-5ed2-4527-8b8d-86a9c889b129}";
+exports.firefox_id = "{af881826-e0f9-4b97-898a-a416dc473545}";
 
 /*****************************************************************************/
 
@@ -193,18 +193,17 @@ exports.manifest = (browser) => {
         }
     } else if (browser === "firefox") {
         // TODO: Sidebar action seems to be back upstream
-        manifest.sidebar_action = {
-            "default_title": "__MSG_statsPageName__",
-            "default_panel": "logger-ui.html",
-            "default_icon": "img/128_on.png",
-            "open_at_install": false
-        },
+        // manifest.sidebar_action = {
+        //     "default_title": "__MSG_statsPageName__",
+        //     "default_panel": "logger-ui.html",
+        //     "default_icon": "img/128_on.png",
+        //     "open_at_install": false
+        // },
         // https://github.com/gorhill/uBlock/commit/c5e3773a3c0480c6900db848c8755d6ec409933f
         manifest.applications = {
             "gecko": {
                 "id": exports.firefox_id,
-                "update_url": "https://raw.githubusercontent.com/LiCybora/NanoCoreFirefox/master/Extension%20Compiler/updates.json",                
-                "strict_min_version": "55.0"
+                "strict_min_version": "57.0"
             }
         };
         manifest.browser_action.browser_style = false;
