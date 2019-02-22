@@ -7,7 +7,6 @@ A patch driven fork of uBlock Origin.
 Upstream commit pin: `74823f61209bf5d83ef9023c69ec41f894f2961c` or `1.18.4`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
-=======
 
 **Please submit issues to the
 [Nano Core issues tracker](https://github.com/LiCybora/NanoCoreFirefox/issues).**
