@@ -1,4 +1,4 @@
-# Nano Core 2 for Firefox (Unofficial)
+# Nano Core 2 for Firefox
 
 Restarting fresh on Firefox.
 
@@ -6,9 +6,7 @@ A patch driven fork of uBlock Origin.
 
 Upstream commit pin: `74823f61209bf5d83ef9023c69ec41f894f2961c` or `1.18.4`
 
-**WARNING: This is NOT official Firefox port to Nano Core 2 Project.**
-
-The official project is on [here](https://github.com/NanoAdblocker/NanoCore2).
+The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 =======
 
 **Please submit issues to the
