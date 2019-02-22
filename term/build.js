@@ -160,7 +160,7 @@ exports.edge_shim = "../Edgyfy/edgyfy.js";
 exports.build_core = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
-    const output = r("./build", browser);
+    const output = r("./build", browser + "_amo_unsigned");
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
@@ -221,7 +221,7 @@ exports.build_core = async (browser) => {
 exports.build_filters = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
-    const output = r("./build", browser, "assets");
+    const output = r("./build", browser + "_amo_unsigned", "assets");
     await fs.mkdirp(output);
 
     const assets = exports.assets_repo;
@@ -253,7 +253,7 @@ exports.build_filters = async (browser) => {
 exports.build_resources = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
-    const output = r("./build", browser, "web_accessible_resources");
+    const output = r("./build", browser + "_amo_unsigned", "web_accessible_resources");
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
@@ -414,7 +414,7 @@ exports.build_resources = async (browser) => {
 exports.build_locale = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
-    const output = r("./build", browser, "_locales");
+    const output = r("./build", browser + "_amo_unsigned", "_locales");
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
@@ -558,7 +558,7 @@ exports.build_locale = async (browser) => {
 exports.test = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
-    await syntax.validate_dir(r("./build", browser));
+    await syntax.validate_dir(r("./build", browser + "_amo_unsigned"));
 };
 
 /**
@@ -569,7 +569,7 @@ exports.test = async (browser) => {
 exports.pack = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
-    const in_dir = r("./build", browser);
+    const in_dir = r("./build", browser + "_amo_unsigned");
     const out_file = in_dir + ".zip";
 
     await zip(in_dir, out_file);
@@ -611,9 +611,10 @@ exports.publish = async (browser, term) => {
         term.write_line("APPX package created. Automatic publishing of Edge " +
             "extensions is not yet implemented.");
     } else if (browser === "firefox") {
-        addon = require("./addon.js");
+        // Use AMO page instead
+        // addon = require("./addon.js");
 
-        await addon.publish(input, data.version, data.firefox_id, "./build", term);
+        // await addon.publish(input, data.version, data.firefox_id, "./build", term);
 
     }
 };
