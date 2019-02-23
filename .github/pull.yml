@@ -1,6 +1,6 @@
 version: "1"
 rules:
-  - base: moz
+  - base: master
     upstream: NanoAdblocker:master
     autoMerge: false
     
