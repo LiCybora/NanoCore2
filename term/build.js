@@ -148,7 +148,7 @@ const f = (root, ext, match = true) => {
  */
 exports.src_repo = null;
 exports.assets_repo = "../NanoFilters";
-exports.defender_repo = "../uBlockProtector";
+exports.defender_repo = "../NanoDefenderFirefox";
 exports.edge_shim = "../Edgyfy/edgyfy.js";
 
 /*****************************************************************************/
