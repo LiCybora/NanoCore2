@@ -27,7 +27,7 @@ Your language is not listed? Submit an issue to let me know.
    1. `git clone --depth 1 https://github.com/LiCybora/NanoCore2.git`
    2. `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
    3. `git clone --depth 1 https://github.com/jspenguin2017/Edgyfy.git`
-   4. `git clone --depth 1 https://github.com/jspenguin2017/uBlockProtector`
+   4. `git clone --depth 1 https://github.com/LiCybora/NanoDefenderFirefox`
 3. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
    appropriate directory to get upstream. Check out a tag or commit as
    appropriate.
