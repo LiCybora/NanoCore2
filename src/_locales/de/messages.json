@@ -1,54 +1,54 @@
 {
   "nano_d_ui_group": {
-    "message": "Interfaz de usuario",
+    "message": "Benutzeroberfläche",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
-    "message": "Soft wrap long lines in filter editor",
+    "message": "Lange Zeilen im Filter-Editor automatisch umbrechen",
     "description": "English: Soft wrap long lines in filter editor"
   },
   "nano_d_line_wrap_v": {
-    "message": "Soft wrap long lines in filter viewer",
+    "message": "Lange Zeilen im Filter-Betrachter automatisch umbrechen",
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Forzar recompilado de filtros",
+    "message": "Filter neu kompilieren erzwingen",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano viene con dos conjuntos de recursos, los <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>Recursos de uBlock Origin</a> y los <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Recursos Extra de Nano</a>.",
+    "message": "Nano enthält zwei Ressourcensätze, die <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Ressourcen</a> und die <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>zusätzlichen Ressourcen von Nano</a>.",
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
-    "message": "El Editor de Filtros de Nano está potenciado por Ace y la mayoría de los atajos de teclado funcionan igual.",
+    "message": "Der Nano Filter-Editor basiert auf Ace und die meisten Tastenkombinationen funktionieren identisch.",
     "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_unsaved_warning": {
-    "message": "¿Seguro que quieres salir?\nLos cambios realizados no serán guardados.",
+    "message": "Tab verlassen?\nDeine Änderungen werden nicht gespeichert.",
     "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' should be changed to 'will'"
   },
   "nano_d_about_based_on": {
-    "message": "Basado en {{@data}}",
+    "message": "Basierend auf {{@data}}",
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano — Visor de filtros",
+    "message": "Nano — Filter-Betrachter",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
-    "message": "No se puede cargar el contenido. Por favor, actualice la pestaña.",
+    "message": "Could not load content, please refresh.",
     "description": "Error when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "control de caché",
+    "message": "Cache-Kontrolle",
     "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Toggle the overview panel",
+    "message": "Übersichtsfenster umschalten",
     "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
   },
   "nano_p_refresh_button": {
-    "message": "Haz clic aquí para actualizar esta página.\n\nCtrl+clic para actualizar esta página sin usar memoria caché.",
+    "message": "Klicken, um diese Seite neu zu laden.\n\nStrg+Klick, um diese Seite neu zu laden und dabei die im Cache gespeicherten Inhalte zu ignorieren.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
@@ -56,175 +56,175 @@
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(beta) Abrir la ficha de reporte de fallos",
+    "message": "(beta) Fehlerberichterstattung öffnen",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano no analizó el resto de las líneas buscando advertencias porque hay demasiadas advertencias.",
+    "message": "Nano hat den Rest der Zeilen nicht nach Warnungen durchsucht, weil es zu viele Warnungen gibt.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
-    "message": "Esta línea es tratada como una expresión regular. ¿Está puesto a propósito?",
+    "message": "Diese Zeile wird als regulärer Ausdruck behandelt, ist das beabsichtigt?",
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano no analizó el resto de las líneas buscando errores porque hay demasiados errores.",
+    "message": "Nano hat den Rest der Zeilen nicht nach Fehlern durchsucht, weil es zu viele Fehler gibt.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
-    "message": "Este nombre de host no es válido.",
+    "message": "Dieser Hostname ist ungültig.",
     "description": "Error when hostname not valid"
   },
   "nano_l_whitelist_invalid_re": {
-    "message": "Esta expresión regular tiene errores de sintaxis.",
+    "message": "Dieser reguläre Ausdruck hat Syntax-Fehler.",
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {
-    "message": "Esta URL no es válida.",
+    "message": "Diese URL ist ungültig.",
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano no analizó el resto de las líneas buscando advertencias porque hay demasiadas advertencias.",
+    "message": "Nano hat den Rest der Zeilen nicht nach Warnungen durchsucht, weil es zu viele Warnungen gibt.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
-    "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+    "message": "Nano hat eine ausgeschlossene Domain verworfen, weil sie nicht in der Ausnahmeregel eines Skript-Schnipsels verwendet werden kann.",
     "description": "Warning when negated domain used with script snippet exception"
   },
   "nano_l_filter_converted_to_exception": {
-    "message": "Nano convirtió esta regla en una excepción porque solo contiene dominios negados.",
+    "message": "Nano hat diese Regel in eine Ausnahmeregel umgewandelt, da sie nur ausgeschlossene Domains enthält.",
     "description": "Warning when a rule is convered to exception because all negated domains"
   },
   "nano_l_filter_negated_html_filtering": {
-    "message": "Los dominios negados aún no son admitidos para filtros de HTML.",
+    "message": "Die ausgeschlossene Domain wird noch nicht für die HTML-Filterung unterstützt.",
     "description": "Warning when negated domain used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
-    "message": "Nano descartó la opción de tipo {{type}} porque no puede ser negado.",
+    "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
     "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
-    "message": "Nano reemplazó la opción 'mp4' con 'media,redirect=noopmp4-1s'.",
+    "message": "Nano hat die Auswahl 'mp4' durch 'media,redirect=noopmp4-1s' ersetzt.",
     "description": "Warning when 'mp4' is replaced"
   },
   "nano_l_filter_unsupported_type_ignored": {
-    "message": "Nano descartó las opciones de tipo que aún no son admitidas.",
+    "message": "Nano discarded type options that are not yet supported.",
     "description": "Warning when unsupported type options discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
-    "message": "El recurso '{{res}}' no puede ser encontrado. ¿Está escrito correctamente?",
+    "message": "Die Ressource '{{res}}' konnte nicht gefunden werden, ist sie korrekt geschrieben?",
     "description": "Warning when resource not found"
   },
   "nano_l_filter_comment_bracket": {
-    "message": "El uso de '[' para denotar un comentario está obsoleto. Usa '!' en su lugar.",
+    "message": "Using '[' to denote comment is deprecated, use '!' instead.",
     "description": "Deprecation when '[' used for comments"
   },
   "nano_l_filter_inline_comment": {
-    "message": "Los comentarios en una línea están obsoletos.",
+    "message": "Inline-Kommentare sind veraltet.",
     "description": "Deprecation when inline comments"
   },
   "nano_l_filter_script_contains": {
-    "message": "'##script:contains(...)' está obsoleto. Usa '##^script:has-text(...)' en su lugar.",
+    "message": "'##script:contains(...)' is deprecated, use '##^script:has-text(...)' instead.",
     "description": "Deprecation when 'script:contains' is used"
   },
   "nano_l_filter_mp4_option": {
-    "message": "El uso de la opción 'mp4' está obsoleto. Escribe las opciones completas en su lugar.",
+    "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano no analizó el resto de las líneas buscando errores porque hay demasiados errores.",
+    "message": "Nano hat den Rest der Zeilen nicht nach Fehlern durchsucht, weil es zu viele Fehler gibt.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "La inyección de código JavaScript puro no es aceptada por motivos de seguridad.",
+    "message": "Aus Sicherheitsgründen wird rohe JavaScript Injection nicht akzeptiert.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
-    "message": "El selector en esta regla tiene errores de sintaxis.",
+    "message": "Der Selektor in dieser Regel hat Syntax-Fehler.",
     "description": "Error when selector has syntax errors"
   },
   "nano_l_filter_too_expensive": {
-    "message": "Esta regla no puede ser genérica.",
+    "message": "Diese Regel kann nicht generisch sein.",
     "description": "Error when expensive rule is generic"
   },
   "nano_l_filter_style_injection_syntax_error": {
-    "message": "Esta regla de inyección de CSS tiene errores de sintaxis.",
+    "message": "Diese Regel für eine CSS Injection hat Syntax-Fehler.",
     "description": "Error when CSS injection has syntax errors"
   },
   "nano_l_filter_assets_access_violation": {
-    "message": "Los filtros no privilegiados no pueden hacer referencia a recursos privilegiados.",
+    "message": "Nicht privilegierte Filter können nicht auf privilegierte Ressourcen verweisen.",
     "description": "Error when unprivileged filter references a privileged resources"
   },
   "nano_l_filter_localhost_entry": {
-    "message": "Esta entrada de archivo de host está descartada porque es una declaración a este equipo.",
+    "message": "Dieser Hostdatei-Eintrag wird verworfen, da es sich um eine Deklaration des localhost handelt.",
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Las reglas de remoción de elementos con la sintaxis de AdGuard aún no son admitidas. Use '##^' en su lugar.",
+    "message": "Regeln zum Entfernen von Elementen mit AdGuard-Syntax werden noch nicht unterstützt, stattdessen '##^' verwenden.",
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
-    "message": "Las opciones 'generichide', 'ghide', y 'elemhide' no pueden ser negadas.",
+    "message": "Die Optionen 'generichide', 'ghide' und 'elemhide' können nicht negiert werden.",
     "description": "Error when 'generichide' is negated"
   },
   "nano_l_filter_bad_domain_option_arguments": {
-    "message": "La opción 'domain=...' tiene argumentos inválidos.",
+    "message": "Die Option 'domain=...' hat ungültige Argumente.",
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "La opción 'csp=...' tiene argumentos inválidos.",
+    "message": "Die Option 'csp=...' hat ungültige Argumente.",
     "description": "Error when 'csp=' has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
-    "message": "La opción '{{option}}' no es reconocida.",
+    "message": "Die Option '{{option}}' wird nicht erkannt.",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
-    "message": "Una opción de tipo aún no es admitida.",
+    "message": "Eine Typenangabe wird noch nicht unterstützt.",
     "description": "Error when unsupported type option used and entire rule discarded"
   },
   "nano_l_filter_bad_re": {
-    "message": "Esta regla de red tiene errores de sintaxis de expresión regular.",
+    "message": "Diese Netzwerkregel hat Syntax-Fehler im regulären Ausdruck.",
     "description": "Error when network has regular expression syntax errors"
   },
   "nano_l_filter_intervention_smed79": {
-    "message": "El ancla de dominio no puede ser seguido inmediatamente por un '^'.",
+    "message": "Der Domänen-Anker kann nicht sofort von '^' gefolgt werden.",
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
-    "message": "Nano descartó la opción 'redirect=...' porque requiere una opción de tipo.",
+    "message": "Nano hat die Option 'redirect=...' verworfen, da sie eine Typenangabe benötigt.",
     "description": "Warning when 'redirect=' has no type"
   },
   "nano_r_too_many_types": {
-    "message": "Nano descartó la opción 'redirect=...' porque tiene muchas opciones de tipo.",
+    "message": "Nano hat die Option 'redirect=...' verworfen, weil sie zu viele Typenangaben enthält.",
     "description": "Warning when 'redirect=' has too many types"
   },
   "nano_r_no_resource_token": {
-    "message": "Nano descartó la opción 'redirect=...' porque no tiene argumentos.",
+    "message": "Nano hat die Option 'redirect=...' verworfen, weil sie keine Argumente hat.",
     "description": "Warning when 'redirect=' has no arguments"
   },
   "nano_r_no_supported_type": {
-    "message": "Nano descartó la opción 'redirect=...' porque no tiene una opción de tipo admitida.",
+    "message": "Nano hat die Option 'redirect=...' verworfen, da sie keine unterstützte Typenangabe enthält.",
     "description": "Warning when 'redirect=' has no supported type"
   },
   "nano_r_negated_domain": {
-    "message": "Nano descartó un dominio negado porque no se puede usar con la opción 'redirect=...'.",
+    "message": "Nano discarded a negated domain because it cannot be used with the option 'redirect=...'.",
     "description": "Warning when negated domain used with 'redirect='"
   },
   "nano_r_no_destination": {
-    "message": "Nano descartó la opción 'redirect=...' porque no tiene un dominio de destino válido.",
+    "message": "Nano discarded the option 'redirect=...' because it has no valid destination domain.",
     "description": "Warning when 'redirect=' has no destination"
   },
   "nano_r_redirect_in_exception": {
-    "message": "La opción 'redirect=...' no se puede usar en reglas de excepción.",
+    "message": "Die Option 'redirect=...' kann nicht in Ausnahmeregeln verwendet werden.",
     "description": "Error when 'redirect=' used in exception"
   },
   "nano_r_does_not_match_re": {
-    "message": "Nano descartó la opción 'redirect=...' porque esta regla de red no coincide con la expresión regular: {{regexp}}",
+    "message": "Nano discarded the option 'redirect=...' because this network rule does not match this regular expression: {{regexp}}",
     "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "Esta regla es rechazada por ahora. Más información: https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "message": "Diese Regel wird vorerst abgelehnt. Weitere Informationen: https://github.com/NanoAdblocker/NanoCore/issues/77",
     "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
   }
 }
