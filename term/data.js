@@ -229,17 +229,6 @@ exports.manifest = (browser) => {
             "open_in_tab": true,
             "page": "dashboard.html",
         };
-        manifest.permissions = [
-            "contextMenus",
-            "privacy",
-            "storage",
-            "tabs",
-            "unlimitedStorage",
-            "webNavigation",
-            "webRequest",
-            "webRequestBlocking",
-            "<all_urls>"
-        ];
         delete manifest.storage;    
     }
 
