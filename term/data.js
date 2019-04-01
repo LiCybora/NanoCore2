@@ -234,6 +234,7 @@ exports.manifest = (browser) => {
             "privacy",
             "storage",
             "tabs",
+            "unlimitedStorage",
             "webNavigation",
             "webRequest",
             "webRequestBlocking",
