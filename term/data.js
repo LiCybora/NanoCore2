@@ -175,7 +175,7 @@ exports.manifest = (browser) => {
             "open_at_install": false
         },
         // https://github.com/gorhill/uBlock/commit/c5e3773a3c0480c6900db848c8755d6ec409933f
-        manifest.applications = {
+        manifest.browser_specific_settings = {
             "gecko": {
                 "id": exports.firefox_id,
                 "update_url": "https://raw.githubusercontent.com/LiCybora/NanoCoreFirefox/master/Extension%20Compiler/updates.json",                
