@@ -30,13 +30,13 @@ const assert = require("assert");
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-exports.version = "1.0.0.106";
+exports.version = "1.0.0.109";
 
 exports.based_on = [
     "uBlock Origin",
 
-    "Version/1.18.16",
-    "Commit/7bf83fa",
+    "Version/1.19.2",
+    "Commit/07cbae6",
 
     "UserCSS/disabled",
 ].join(" ");
@@ -175,7 +175,7 @@ exports.manifest = (browser) => {
         //     "open_at_install": false
         // },
         // https://github.com/gorhill/uBlock/commit/c5e3773a3c0480c6900db848c8755d6ec409933f
-        manifest.applications = {
+        manifest.browser_specific_settings = {
             "gecko": {
                 "id": exports.firefox_id,
                 "strict_min_version": "57.0"
