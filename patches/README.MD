@@ -40,8 +40,11 @@ category because a pull request is opened upstream.
 
 `30_0_link_resources.patch`: Link useful resources in the dashboard.
 
-## Group `40`: Code Cleanup
-
 ## Group `60`: Shortcut Changes
 
 `60_0_mac_shortcut`: Fix Mac computer fail recording and using shortcut. 
+
+## Group `90`: Other Changes
+
+`90_0_temp_magic_override.patch`: Temporary compile magic and selfie magic
+overrides.

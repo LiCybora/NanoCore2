@@ -30,13 +30,13 @@ const assert = require("assert");
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-exports.version = "1.0.0.106";
+exports.version = "1.0.0.109";
 
 exports.based_on = [
     "uBlock Origin",
 
-    "Version/1.18.16",
-    "Commit/7bf83fa",
+    "Version/1.19.2",
+    "Commit/07cbae6",
 
     "UserCSS/disabled",
 ].join(" ");

@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `7bf83fad5ee4bd331c95e777aa6f290fa7824957` or `1.18.16`
+Upstream commit pin: `07cbae66a475a8b0cf0a93cfbff0ac63c3bfa8b1` or `1.19.2`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 
@@ -113,8 +113,7 @@ Do not forget to copy and commit generated patches from `mark` to make them
 permanent. Also adjust the configuration file as appropriate.
 
 To update a patch, simply paste further changes to the bottom of that patch and
-`sync` them in. If something breaks, try disabling patches after that patch
-temporarily.
+`sync` them in.
 
 To fix conflict, either edit the broken patch file manually or disable it
 along with patches after it then recreate the changes.
