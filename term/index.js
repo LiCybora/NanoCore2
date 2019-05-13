@@ -185,7 +185,7 @@ cmd_handlers.set("init", async () => {
         // Need to wait a bit in between or there could be problems on Windows
         await sleep(100);
 
-        await fs.copy('../ublock', config.Source);
+        await fs.copy('../uBlock', config.Source);
     } catch (err) {
         term.write_line(err.stack);
     }
