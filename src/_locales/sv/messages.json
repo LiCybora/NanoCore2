@@ -1,0 +1,230 @@
+{
+  "nano_d_ui_group": {
+    "message": "Användargränssnitt",
+    "description": "Group 'User interface' of settings tab"
+  },
+  "nano_d_line_wrap_e": {
+    "message": "Soft wrap long lines in filter editor",
+    "description": "English: Soft wrap long lines in filter editor"
+  },
+  "nano_d_line_wrap_v": {
+    "message": "Soft wrap long lines in filter viewer",
+    "description": "English: Soft wrap long lines in filter viewer"
+  },
+  "nano_d_recompile_filters": {
+    "message": "Force recompile filters",
+    "description": "Button in advanced settings to recompile filters"
+  },
+  "nano_d_resources_links": {
+    "message": "Nano comes with two sets of resources, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> and <a href='https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt'>Nano Extra Resources</a>.",
+    "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
+  },
+  "nano_d_ace_help": {
+    "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
+    "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
+  },
+  "nano_d_unsaved_warning": {
+    "message": "Lämna fliken?\nÄndringar du har gjort kommer inte att sparas.",
+    "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' should be changed to 'will'"
+  },
+  "nano_d_about_based_on": {
+    "message": "Baserat på {{@data}}",
+    "description": "English: Based on {{@data}}"
+  },
+  "nano_v_title": {
+    "message": "Nano — Filtervisare",
+    "description": "Title of the filter viewer"
+  },
+  "nano_v_read_error": {
+    "message": "Det gick inte att ladda innehållet, prova uppdatera.",
+    "description": "Error when filter content could not be loaded"
+  },
+  "nano_p_cache_control": {
+    "message": "cache-kontroll",
+    "description": "The cache control strip name, can be at most 20 English characters wide"
+  },
+  "nano_p_open_firewall_pane": {
+    "message": "Växla översiktspanelen",
+    "description": "Tooltip for toggle firewall (sometimes called overview) panel button"
+  },
+  "nano_p_refresh_button": {
+    "message": "Tryck för att uppdatera den här sidan.\n\nCtrl+tryck för att uppdatera den här sidan när du kringgår cachen.",
+    "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
+  },
+  "nano_p_force_scroll": {
+    "message": "(beta) Tvinga rullningsläge (kommer att förstöra sidlayouten)",
+    "description": "Tooltip for force scroll button"
+  },
+  "nano_p_bug_reporter": {
+    "message": "(beta) Öppna felrapporteraren",
+    "description": "Tooltip for bug reporter button"
+  },
+  "nano_l_whitelist_aborted_w": {
+    "message": "Nano sökte inte igenom resten av raderna för varningar eftersom det finns för många varningar.",
+    "description": "Warning when too many warnings in whitelists"
+  },
+  "nano_l_whitelist_suspecious_re": {
+    "message": "Den här raden behandlas som ett reguljärt uttryck, är det tänkt så?",
+    "description": "Warning when parsed as regular expression but is unlikely the intention of user"
+  },
+  "nano_l_whitelist_aborted_e": {
+    "message": "Nano sökte inte igenom resten av raderna efter fel eftersom det finns för många fel.",
+    "description": "Error when too many errors in whitelists"
+  },
+  "nano_l_whitelist_invalid_hostname": {
+    "message": "Värdnamnet är ogiltigt.",
+    "description": "Error when hostname not valid"
+  },
+  "nano_l_whitelist_invalid_re": {
+    "message": "Detta reguljära uttrycket har syntaxfel.",
+    "description": "Error when regular expression has syntax errors"
+  },
+  "nano_l_whitelist_invalid_url": {
+    "message": "Webbadressen är ogiltig.",
+    "description": "Error when a URL not valid"
+  },
+  "nano_l_filter_aborted_w": {
+    "message": "Nano sökte inte igenom resten av raderna för varningar eftersom det finns för många varningar.",
+    "description": "Warning when too many warnings in filter rules"
+  },
+  "nano_l_filter_script_snippet_double_exception": {
+    "message": "Nano discarded a negated domain because it cannot be used in a script snippet exception rule.",
+    "description": "Warning when negated domain used with script snippet exception"
+  },
+  "nano_l_filter_converted_to_exception": {
+    "message": "Nano konverterade den här regeln till en undantagsregel eftersom den endast innehöll förnekande domäner.",
+    "description": "Warning when a rule is convered to exception because all negated domains"
+  },
+  "nano_l_filter_negated_html_filtering": {
+    "message": "Förnekande domäner stöds inte ännu för HTML-filtrering.",
+    "description": "Warning when negated domain used with HTML filtering"
+  },
+  "nano_l_filter_discarded_non_negatable_type": {
+    "message": "Nano förkastade typalternativet '{{type}}' eftersom det inte kan bli förnekande.",
+    "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated."
+  },
+  "nano_l_filter_expanded_mp4_option": {
+    "message": "Nano ersatte alternativet 'mp4' med 'media,redirect=noopmp4-1s'.",
+    "description": "Warning when 'mp4' is replaced"
+  },
+  "nano_l_filter_unsupported_type_ignored": {
+    "message": "Nano förkastar typalternativ som ännu inte stöds.",
+    "description": "Warning when unsupported type options discarded but not entire rule"
+  },
+  "nano_l_filter_resource_not_found": {
+    "message": "Resursen '{{res}}' kunde inte hittas, är det stavat korrekt?",
+    "description": "Warning when resource not found"
+  },
+  "nano_l_filter_comment_bracket": {
+    "message": "Using '[' to denote comment is deprecated, use '!' instead.",
+    "description": "Deprecation when '[' used for comments"
+  },
+  "nano_l_filter_inline_comment": {
+    "message": "Inline comments are deprecated.",
+    "description": "Deprecation when inline comments"
+  },
+  "nano_l_filter_script_contains": {
+    "message": "'##script:contains(...)' is deprecated, use '##^script:has-text(...)' instead.",
+    "description": "Deprecation when 'script:contains' is used"
+  },
+  "nano_l_filter_mp4_option": {
+    "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
+    "description": "Deprecation when 'mp4'"
+  },
+  "nano_l_filter_aborted_e": {
+    "message": "Nano sökte inte igenom resten av raderna efter fel eftersom det finns för många fel.",
+    "description": "Error when too many errors in filter rules"
+  },
+  "nano_l_filter_ag_js_injection": {
+    "message": "Raw JavaScript-injektion accepteras inte på grund av säkerhetsproblem.",
+    "description": "Error when raw JavaScript injection"
+  },
+  "nano_l_filter_bad_selector": {
+    "message": "Väljaren i denna regel har syntaxfel.",
+    "description": "Error when selector has syntax errors"
+  },
+  "nano_l_filter_too_expensive": {
+    "message": "Denna regel kan inte vara generisk.",
+    "description": "Error when expensive rule is generic"
+  },
+  "nano_l_filter_style_injection_syntax_error": {
+    "message": "Den här CSS-injektionsregeln har syntaxfel.",
+    "description": "Error when CSS injection has syntax errors"
+  },
+  "nano_l_filter_assets_access_violation": {
+    "message": "Ej privilegierade filter kan inte referera till privilegierade resurser.",
+    "description": "Error when unprivileged filter references a privileged resources"
+  },
+  "nano_l_filter_localhost_entry": {
+    "message": "Denna värdfilinmatning förkastades eftersom den är en localhost-deklaration.",
+    "description": "Error when localhost declaration"
+  },
+  "nano_l_filter_ag_element_remove": {
+    "message": "Elementborttagningsregler med AdGuard-syntax stöd ännu inte, använd i stället '##^'.",
+    "description": "Error when AdGuard style element remove rule"
+  },
+  "nano_l_filter_negated_generichide": {
+    "message": "Alternativen 'generichide', 'ghide', och 'elemhide' kan inte bli förnekande.",
+    "description": "Error when 'generichide' is negated"
+  },
+  "nano_l_filter_bad_domain_option_arguments": {
+    "message": "Alternativet 'domain=...' har ogiltiga argument.",
+    "description": "Error when 'domain=' has invalid arguments"
+  },
+  "nano_l_filter_bad_csp_option_arguments": {
+    "message": "Alternativet 'csp=...' har ogiltiga argument.",
+    "description": "Error when 'csp=' has invalid arguments"
+  },
+  "nano_l_filter_unknown_option": {
+    "message": "Alternativet '{{option}}' känns inte igen.",
+    "description": "English: The option '{{option}}' is not recognized."
+  },
+  "nano_l_filter_only_unsupported_type": {
+    "message": "Ett typalternativ stöds inte ännu.",
+    "description": "Error when unsupported type option used and entire rule discarded"
+  },
+  "nano_l_filter_bad_re": {
+    "message": "Denna nätverksregeln har syntaxfel i det reguljära uttrycket.",
+    "description": "Error when network has regular expression syntax errors"
+  },
+  "nano_l_filter_intervention_smed79": {
+    "message": "Domänankaret får inte följas omedelbart av ett '^'.",
+    "description": "Error when the bad rule from SMed79 is discarded"
+  },
+  "nano_r_no_type": {
+    "message": "Nano förkastade alternativet 'redirect=...' eftersom det kräver ett typalternativ.",
+    "description": "Warning when 'redirect=' has no type"
+  },
+  "nano_r_too_many_types": {
+    "message": "Nano förkastade alternativet 'redirect=...' eftersom det har för många typalternativ.",
+    "description": "Warning when 'redirect=' has too many types"
+  },
+  "nano_r_no_resource_token": {
+    "message": "Nano förkastade alternativet 'redirect=...' eftersom det har inga argument.",
+    "description": "Warning when 'redirect=' has no arguments"
+  },
+  "nano_r_no_supported_type": {
+    "message": "Nano förkastade alternativet 'redirect=...' eftersom det inte har något typalternativ som stöds.",
+    "description": "Warning when 'redirect=' has no supported type"
+  },
+  "nano_r_negated_domain": {
+    "message": "Nano förkastade en förnekad domän eftersom den inte kan användas med alternativet 'redirect=...'.",
+    "description": "Warning when negated domain used with 'redirect='"
+  },
+  "nano_r_no_destination": {
+    "message": "Nano förkastade alternativet 'redirect=...' eftersom det inte har någon giltig destinationsdomän.",
+    "description": "Warning when 'redirect=' has no destination"
+  },
+  "nano_r_redirect_in_exception": {
+    "message": "Alternativet 'redirect=...' kan inte användas i undantagsregler.",
+    "description": "Error when 'redirect=' used in exception"
+  },
+  "nano_r_does_not_match_re": {
+    "message": "Nano förkastade alternativet 'redirect=...' eftersom denna nätverksregeln inte matchar det här reguljära uttrycket: {{regexp}}",
+    "description": "Warning when 'redirect=' failed initial test, use '{{regexp}}' to denote the tester if needed"
+  },
+  "nano_b_cosmetic_filter_passed_through": {
+    "message": "Denna regel avvisas för tillfället. Mer information: https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
+  }
+}

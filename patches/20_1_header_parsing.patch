@@ -1,5 +1,5 @@
 diff --git a/src/js/storage.js b/src/js/storage.js
-index 32daddc3..22edc6d9 100644
+index c128c938..1d99934f 100644
 --- a/src/js/storage.js
 +++ b/src/js/storage.js
 @@ -825,15 +825,33 @@
