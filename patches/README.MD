@@ -43,8 +43,3 @@ category because a pull request is opened upstream.
 ## Group `60`: Shortcut Changes
 
 `60_0_mac_shortcut`: Fix Mac computer fail recording and using shortcut. 
-
-## Group `90`: Other Changes
-
-`90_0_temp_magic_override.patch`: Temporary compile magic and selfie magic
-overrides.
