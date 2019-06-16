@@ -7,7 +7,7 @@ If you are not familiar with advanced settings of uBlock Origin,
 
 In Nano Adblocker, most of the advanced settings are the same as uBlock Origin,
 however, the default value of some settings are different:
-- `autoUpdateAssetFetchPeriod` defaults to `300` <sup>1</sup>
+- `autoUpdateAssetFetchPeriod` defaults to `180` <sup>1</sup>
 - `autoUpdatePeriod` defaults to `4`
 - `manualUpdateAssetFetchPeriod` defaults to `1` <sup>1</sup>
 
@@ -24,6 +24,13 @@ functionalities in the advanced settings page. These advanced functionalities
 want to play around with them. Please open an issue when they break for you, or
 otherwise behave in a way that contradicts the description below. We cannot fix
 issues that we are not aware of, so please take the time to report them!
+
+### `autoCommentFilterTemplate` option
+
+Available since 1.0.0.113
+
+Following placeholders are also supported:
+- `{{nanoHref}}`: Full URL of the webpage
 
 ### `Force recompile filters` button
 
