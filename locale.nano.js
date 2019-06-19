@@ -38,8 +38,9 @@
     // ------------------------------------------------------------------------------------------------------------- //
 
     const ubo_res_doc = "https://github.com/gorhill/uBlock/wiki/Resources-Library";
-    const nano_res_doc = "https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/" +
-        "NanoResources.txt";
+
+    const nano_res_doc =
+        "https://github.com/NanoAdblocker/NanoFilters/blob/master/NanoFiltersSource/NanoResources.txt";
 
     // ------------------------------------------------------------------------------------------------------------- //
 
@@ -76,14 +77,10 @@
         },
 
         "nano_d_ace_help": {
+            // TODO: Not used
             "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
-            "description": "Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys",
-        },
-
-        "nano_d_unsaved_warning": {
-            "message": "Leave tab?\nChanges you made will not be saved.",
-            "description": "Unsaved change warning, this should match Chromium's native prompt except that 'may' " +
-                "should be changed to 'will'",
+            "description": "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of " +
+                "shortcut keys",
         },
 
         "nano_d_about_based_on": {
@@ -102,7 +99,7 @@
 
         "nano_v_read_error": {
             "message": "Could not load content, please refresh.",
-            "description": "Error when filter content could not be loaded",
+            "description": "Message when filter content could not be loaded",
         },
 
         // --------------------------------------------------------------------------------------------------------- //
@@ -116,7 +113,7 @@
 
         "nano_p_open_firewall_pane": {
             "message": "Toggle the overview panel",
-            "description": "Tooltip for toggle firewall (sometimes called overview) panel button",
+            "description": "Tooltip for toggle firewall details (sometimes called overview panel) button",
         },
 
         "nano_p_refresh_button": {
@@ -141,8 +138,11 @@
 
         // Whitelist linter warnings
 
+        // TODO: Are these used?
+
         "nano_l_whitelist_aborted_w": {
-            "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+            "message": "Nano did not scan the rest of the whitelists for warnings because there are too many " +
+                "warnings.",
             "description": "Warning when too many warnings in whitelists",
         },
 
@@ -155,8 +155,10 @@
 
         // Whitelist linter errors
 
+        // TODO: Are these used?
+
         "nano_l_whitelist_aborted_e": {
-            "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+            "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
             "description": "Error when too many errors in whitelists",
         },
 
@@ -180,7 +182,8 @@
         // Filter linter warnings
 
         "nano_l_filter_aborted_w": {
-            "message": "Nano did not scan the rest of the lines for warnings because there are too many warnings.",
+            "message": "Nano did not scan the rest of the filter rules for warnings because there are too many " +
+                "warnings.",
             "description": "Warning when too many warnings in filter rules",
         },
 
@@ -201,8 +204,10 @@
         },
 
         "nano_l_filter_discarded_non_negatable_type": {
+            // TODO: Not used
             "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
-            "description": "English: Nano discarded the type option '{{type}}' because it cannot be negated.",
+            "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be " +
+                "negated.",
         },
 
         "nano_l_filter_expanded_mp4_option": {
@@ -212,7 +217,7 @@
 
         "nano_l_filter_unsupported_type_ignored": {
             "message": "Nano discarded type options that are not yet supported.",
-            "description": "Warning when unsupported type options discarded but not entire rule",
+            "description": "Warning when unsupported types discarded but not entire rule",
         },
 
         "nano_l_filter_resource_not_found": {
@@ -249,12 +254,12 @@
         // Filter linter errors
 
         "nano_l_filter_aborted_e": {
-            "message": "Nano did not scan the rest of the lines for errors because there are too many errors.",
+            "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
             "description": "Error when too many errors in filter rules",
         },
 
         "nano_l_filter_ag_js_injection": {
-            "message": "Raw JavaScript injection is not accepted due to security concerns.",
+            "message": "Raw JavaScript injection is not allowed due to security concerns.",
             "description": "Error when raw JavaScript injection",
         },
 
@@ -299,8 +304,8 @@
         },
 
         "nano_l_filter_bad_csp_option_arguments": {
-            "message": "The option 'csp=...' has invalid arguments.",
-            "description": "Error when 'csp=' has invalid arguments",
+            "message": "The option 'csp=...' has no arguments or has invalid arguments.",
+            "description": "Error when 'csp=' has no arguments or has invalid arguments",
         },
 
         "nano_l_filter_unknown_option": {
@@ -309,12 +314,13 @@
         },
 
         "nano_l_filter_only_unsupported_type": {
-            // TODO: This was phrased like this due to weird behavior of thetype option 'webrtc', but turns out to be
-            //       a bug:
-            //       https://github.com/gorhill/uBlock/issues/3433
-            //       Need to investigate whether this should be changed.
-            "message": "A type option is not yet supported.",
-            "description": "Error when unsupported type option used and entire rule discarded",
+            "message": "This filter rule selected only unsupported type options.",
+            "description": "Error when filter rule selected only unsupported types",
+        },
+
+        "nano_l_filter_no_type": {
+            "message": "This filter rule explicitly selected no type options.",
+            "description": "Error when filter rule explicitly selected no types",
         },
 
         "nano_l_filter_bad_re": {
@@ -333,13 +339,13 @@
         // Redirect rule warnings
 
         "nano_r_no_type": {
-            "message": "Nano discarded the option 'redirect=...' because it requires a type option.",
-            "description": "Warning when 'redirect=' has no type",
+            "message": "Nano discarded the option 'redirect=...' because it must select a type option.",
+            "description": "Warning when 'redirect=' selected no types",
         },
 
         "nano_r_too_many_types": {
-            "message": "Nano discarded the option 'redirect=...' because it has too many type options.",
-            "description": "Warning when 'redirect=' has too many types",
+            "message": "Nano discarded the option 'redirect=...' because it selected too many type options.",
+            "description": "Warning when 'redirect=' selected too many types",
         },
 
         "nano_r_no_resource_token": {
@@ -348,8 +354,9 @@
         },
 
         "nano_r_no_supported_type": {
-            "message": "Nano discarded the option 'redirect=...' because it has no supported type option.",
-            "description": "Warning when 'redirect=' has no supported type",
+            "message": "Nano discarded the option 'redirect=...' because it did not select any supported type " +
+                "options.",
+            "description": "Warning when 'redirect=' selected no supported type",
         },
 
         "nano_r_negated_domain": {
