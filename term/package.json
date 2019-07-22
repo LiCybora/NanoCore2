@@ -4,21 +4,21 @@
     "url": "https://github.com/LiCybora/NanoCoreFirefox/issues"
   },
   "dependencies": {
-    "archiver": "~2.1.1",
+    "archiver": "3.0.3",
     "esprima": "~4.0.1",
     "del": "~3.0.0",
-    "fs-extra": "~7.0.0",
+    "fs-extra": "8.1.0",
     "sign-addon": "~0.3.1",
-    "yauzl": "~2.10.0"
+    "yauzl": "2.10.0"
   },
   "description": "Nano Core 2 Terminal",
   "engines": {
-    "node": ">=10.7.0"
+    "node": "10.16.0"
   },
   "homepage": "https://github.com/LiCybora/NanoCore2",
   "license": "GPL-3.0",
   "name": "nano-core-2-term-mod",
   "private": true,
   "repository": "https://github.com/LiCybora/NanoCore2",
-  "version": "1.0.0"
+  "version": "1.0.2"
 }
