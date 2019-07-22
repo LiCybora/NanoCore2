@@ -89,9 +89,10 @@ const config_load = async () => {
     const validate_path = (p) => {
         assert(typeof p === "string");
         assert(path.isAbsolute(p));
-
-        const slashes = p.match(/\//g);
-        assert(slashes !== null && slashes.length >= 2);
+        {
+            const slashes = p.match(/\//g);
+            assert(slashes !== null && slashes.length >= 2);
+        }
     };
 
     assert(Array.isArray(config.Patches));
@@ -136,6 +137,7 @@ const exec_opt = () => {
 // Apply patch
 const apply = async (p) => {
     term.write_line("Applying " + p);
+
     await exec(0, "git", exec_opt(), "apply", p);
 };
 
@@ -508,7 +510,6 @@ cmd_handlers.set("exit", () => {
 process.on("unhandledRejection", (err) => {
     throw err;
 });
-
 
 term.title(APP_NAME).write_line(APP_NAME);
 
