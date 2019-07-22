@@ -18,7 +18,7 @@
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-// Build script.
+// Build script
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
@@ -30,6 +30,7 @@ const archiver = require("archiver");
 const assert = require("assert");
 const crypto = require("crypto");
 const fs = require("fs-extra");
+const os = require("os");
 const path = require("path");
 
 const data = require("./data.js");
@@ -45,6 +46,7 @@ let addon = null;
 
 const md5 = (data) => {
     assert(typeof data === "string");
+
     return crypto.createHash("md5").update(data, "utf8").digest("hex");
 };
 
@@ -56,9 +58,11 @@ const zip = (in_dir, out_file) => {
         const output = fs.createWriteStream(out_file);
 
         input.on("end", resolve).on("warning", reject).on("error", reject);
+
         output.on("error", reject);
 
         input.pipe(output);
+
         input.directory(in_dir, false).finalize();
     });
 };
@@ -125,15 +129,18 @@ exports.build_core = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     const output = r("./build", browser + "_amo_unsigned");
+
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
+
     assert(typeof src === "string");
 
     await fs.copy(r(src, "src/css"), r(output, "css"));
     await fs.copy(r(src, "src/img/fontawesome"), r(output, "img/fontawesome"));
     await fs.copy(r(src, "src/js"), r(output, "js"));
     await fs.copy(r(src, "src/lib"), r(output, "lib"));
+    await fs.copy(r(src, "src/web_accessible_resources"), r(output, "web_accessible_resources"));
     await fs.copy(r(src, "src"), r(output), f(r(src, "src"), ".html"));
 
     await fs.copy(r(src, "platform/chromium"), r(output, "js"), f(r(src, "platform/chromium"), ".js"));
@@ -164,6 +171,9 @@ exports.build_core = async (browser) => {
     await fs.copy(r(exports.defender_repo, "src/reporter"), r(output, "reporter"));
     await fs.copy(r(exports.defender_repo, "src/libdom.js"), r(output, "libdom.js"));
 
+    // This must be done after copying upstream web accessible resources
+    await fs.copy(r("./src/war"), r(output, "web_accessible_resources"));
+
     // This must be done after copying platform files
     await fs.writeFile(r(output, "manifest.json"), data.manifest(browser), "utf8");
 
@@ -175,6 +185,7 @@ exports.build_filters = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     const output = r("./build", browser + "_amo_unsigned", "assets");
+
     await fs.mkdirp(output);
 
     const assets = exports.assets_repo;
@@ -184,16 +195,68 @@ exports.build_filters = async (browser) => {
     await fs.copy(r("./src/assets.json"), r(output, "assets.json"));
 
     await fs.copy(r(assets, "NanoFilters/NanoBase.txt"), r(output, "NanoFilters/NanoBase.txt"));
-    await fs.copy(r(assets, "NanoFilters/NanoResources.txt"), r(output, "NanoFilters/NanoResources.txt"));
     await fs.copy(r(assets, "NanoFilters/NanoWhitelist.txt"), r(output, "NanoFilters/NanoWhitelist.txt"));
 
-    await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"));
+    await fs.copy(r(assets, "ThirdParty"), r(output, "ThirdParty"), {
+        filter: (file) => {
+            if (/[\\/]uBlockResources\.txt$/.test(file))
+                return false;
+
+            return true;
+        },
+    });
 };
 
 exports.build_resources = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
+    const output = r("./build", browser + "_amo_unsigned", "assets/resources");
+
+    await fs.mkdirp(output);
+
+    const src = exports.src_repo;
+
+    assert(typeof src === "string");
+
+    // TODO: Handle stream errors
+    const write_stream = fs.createWriteStream(r(output, "scriptlets.js"), "utf8");
+
+    const [ubo, nano] = await Promise.all([
+        fs.readFile(r(src, "assets/resources/scriptlets.js"), "utf8"),
+        fs.readFile(r("./src/snippets.js"), "utf8"),
+    ]);
+
+    const process_one = (data) => {
+        for (const line of data.split("\n")) {
+            const trimmed = line.trimEnd();
+
+            if (line !== trimmed && line !== trimmed + "\r")
+                console.warn("WARN: Line '" + trimmed + "' becomes much shorter when trimmed");
+
+            write_stream.write(trimmed);
+            write_stream.write(os.EOL);
+        }
+    };
+
+    process_one(ubo);
+    write_stream.write(os.EOL);
+    write_stream.write(os.EOL);
+    process_one(nano);
+
+    await new Promise((resolve) => {
+        write_stream.end(resolve);
+    });
+};
+
+exports.build_resources_old = async (browser) => {
+    // TODO
+    console.error("ERRO: This function is currently disabled");
+    assert(false);
+
+    assert(browser === "chromium" || browser === "edge" || browser === "firefox");
+
     const output = r("./build", browser + "_amo_unsigned", "web_accessible_resources");
+
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
@@ -217,8 +280,8 @@ exports.build_resources = async (browser) => {
 
         const register_entry = () => {
             const [name, mime] = fields.splice(0, 2);
-
             let content;
+
             if (encoded)
                 content = fields.join("");
             else
@@ -238,29 +301,26 @@ exports.build_resources = async (browser) => {
                 continue;
 
             if (fields === null) {
-
                 line = line.trim();
 
                 if (!line)
                     continue;
 
                 fields = line.split(re_split_fields);
+
                 assert(fields.length === 2);
+
                 encoded = fields[1].includes(";");
-
             } else if (re_non_empty_line.test(line)) {
-
                 if (encoded)
                     fields.push(line.trim());
                 else
                     fields.push(line);
-
             } else {
-
                 register_entry();
-
             }
         }
+
         if (fields)
             register_entry();
 
@@ -287,10 +347,13 @@ exports.build_resources = async (browser) => {
         //
         // Need to investigate the benefit of doing that (beside working around a Mac OS operating system bug)
         const suffix = re_extract_mime.exec(db_entry.mime);
+
         assert(suffix !== null);
+
         if (suffix[1] in safe_exts) {
             suffix[1] = safe_exts[suffix[1]];
         }
+
         name = "\t" + name + "." + suffix[1];
 
         record_stream.write(name);
@@ -361,6 +424,7 @@ exports.build_locale = async (browser) => {
     assert(browser === "chromium" || browser === "edge" || browser === "firefox");
 
     const output = r("./build", browser + "_amo_unsigned", "_locales");
+
     await fs.mkdirp(output);
 
     const src = exports.src_repo;
@@ -389,6 +453,7 @@ exports.build_locale = async (browser) => {
             all_keys.push(key);
         }
     }
+
     for (const key in en_nano) {
         if (en_nano.hasOwnProperty(key)) {
             assert(!all_keys.includes(key));
@@ -414,6 +479,7 @@ exports.build_locale = async (browser) => {
             nano = {};
 
         const result = {};
+
         for (const key of all_keys) {
             const ubo_has = ubo.hasOwnProperty(key);
             const nano_has = nano.hasOwnProperty(key);
@@ -526,11 +592,7 @@ exports.publish = async (browser, term) => {
         await fs.remove("./build/NanoAdblocker");
         await fs.copy("./build/edge", "./build/edge_appx");
 
-        await edge.pack(
-            fs, term,
-            r("./src/icons"), r("./build"),
-            r("./build/edge_appx"),
-        );
+        await edge.pack(fs, term, r("./src/icons"), r("./build"), r("./build/edge_appx"));
 
         term.write_line("APPX package created. Automatic publishing of Edge extensions is not yet implemented.");
     } else if (browser === "firefox") {

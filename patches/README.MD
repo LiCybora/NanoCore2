@@ -43,3 +43,7 @@ filters automatic comment template.
 ## Group `60`: Shortcut Changes
 
 `60_0_mac_shortcut`: Fix Mac computer fail recording and using shortcut. 
+
+## Group `90`: Other Changes
+
+`90_0_temporary_migration.patch`: Temporary migration, to be removed later.
