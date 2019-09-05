@@ -108,6 +108,12 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
 
                 // ------------------------------------------------------------------------------------------------- //
 
+                // Special case
+                {
+                    token: "invalid",
+                    regex: /##\+js\(\)$/
+                },
+
                 // Extended filtering
                 {
                     token: "keyword",
@@ -317,11 +323,16 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                     next: "start"
                 },
 
+                // Escaped separator
+                {
+                    token: "constant",
+                    regex: /\\,/
+                },
+
                 // Separator
                 {
                     token: "keyword",
-                    regex: /,/,
-                    next: "script_inject_part2"
+                    regex: /,/
                 },
 
                 // Parameter (default)
@@ -399,6 +410,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                             "xhr",
                             "xmlhttprequest"
                         ].join("|") + ")",
+                        "empty",
                         "i?frame",
                         "mp4",
                         "subdocument"
@@ -422,7 +434,7 @@ ace.define("ace/mode/nano_filters_hr", function (require, exports, module) {
                 // Redirect
                 {
                     token: "keyword",
-                    regex: /redirect=/,
+                    regex: /redirect(?:-rule)?=/,
                     next: "options_redirect"
                 },
 
