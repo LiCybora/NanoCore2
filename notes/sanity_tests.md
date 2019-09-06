@@ -47,9 +47,10 @@ Expected:
 1. Confirm action
 
 **Expected**
-1. Settings are restored
-1. Filter cache is purged
-1. Filters are reloaded from the package
+1. Settings are restored (check outdated warning markers in filter lists tab)
+1. Filter cache is purged (check timestamp in `Malware Domain List`)
+1. Filters are reloaded from the package (check `Network` tab of background
+   console)
 
 ### My Filters Tab
 
@@ -57,20 +58,47 @@ Expected:
 1. Go to my filters tab
 1. Add these filters:
 ```
-||example.com^$mp4
+||www1.example.com^$mp4
+||www2.example.com^$empty
+||www3.example.com^$redirect=
+||www4.example.com^$redirect=noopjs
+*/*$redirect=nooptext
+/[w\d]\.example\.com/$mp4
+||www5.example.com^$mp4,empty
+@@||www6.example.com^$mp4
+
 1
+
 ||ww2.example.com^$xmlhtprequest
+
+www1.example.com#@#+js()
+www2.example.com##+js()
 ```
 
 **Expected**
 1. No error thrown in the background console
 1. Highlighter marks:
-   1. Line `3`: `xmlhtprequest` marked as invalid
+   1. Section `1`:
+      1. Line `3`: `redirect=` marked as invalid
+   1. Section `3`:
+      1. Line `1`: `xmlhtprequest` marked as invalid
+   1. Section `4`:
+      1. Line `2`: `##+js()` marked as invalid
 1. Linter marks:
-   1. Line `1`: `2` warnings
-   1. Line `2`: `1` error
-   1. Line `3`: `1` error
-1. Dashboard shows `2` total filters
+   1. Section `1`:
+      1. Line `3`: `1` warning
+      1. Line `4`: `1` warning
+      1. Line `5`: `2` warnings
+      1. Line `6`: `1` warning
+      1. Line `7`: `1` error
+      1. Line `8`: `1` error
+   1. Section `2`:
+      1. Line `1`: `1` error
+   1. Section `3`:
+      1. Line `1`: `1` error
+   1. Section `4`:
+      1. Line `2`: `1` error
+1. Dashboard shows `5` total filters
 
 **Actions**
 1. Refresh the dashboard
@@ -100,6 +128,7 @@ Expected:
 
 **Expected**
 1. All boxes are green and stays green
+1. No highlight markers and no linter markers in my filters tab
 
 **Cleanup**
 1. Remove added filters
@@ -115,6 +144,7 @@ Expected:
 
 **Expected**
 1. Picked text stays hidden
+1. No highlight markers and no linter markers in my filters tab
 
 **Cleanup**
 1. Remove added filter
