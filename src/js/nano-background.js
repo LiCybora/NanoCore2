@@ -37,12 +37,10 @@ nano.ub = window.__ublock__;
 nano.insert_redirect_declaration = (map) => {
     map.set("nano-tiny-noopvast-2.xml", {
         alias: "nano-tiny-noopvast-2.0",
-        inject: false,
     });
 
     map.set("nano-tiny-noopvast-3.xml", {
         alias: "nano-tiny-noopvast-3.0",
-        inject: false,
     });
 };
 
@@ -319,7 +317,7 @@ nano.FilterLinter.prototype.lint = function (lintable, ...data) {
                 let token = data[0];
 
                 if (!token)
-                    token = "";
+                    return;
 
                 const i = token.indexOf(",");
 

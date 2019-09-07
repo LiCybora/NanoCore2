@@ -30,12 +30,12 @@ const assert = require("assert");
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-exports.version = "1.0.0.123";
+exports.version = "1.0.0.125";
 
 exports.based_on = [
     "uBlock Origin",
-    "Version/1.21.6",
-    "Commit/945b3c5",
+    "Version/1.22.0",
+    "Commit/ac56aab",
     "UserCSS/disabled",
 ].join(" ");
 
@@ -103,6 +103,11 @@ exports.manifest = (browser) => {
                 run_at: "document_idle",
             },
         ],
+
+        // TODO: I do not like how this is being done upstream
+        //       https://bit.ly/2m2iFQx
+        //content_security_policy: "script-src 'self'; object-src 'self'",
+
         default_locale: "en",
         description: "An adblocker",
         icons: {

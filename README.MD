@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `945b3c5158444f9358e2c37c29c2bf43d579b70f` or `1.21.6`
+Upstream commit pin: `ac56aabd7cdf137c5db9e9737112fd6eb96f2511` or `1.22.0`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 
@@ -104,6 +104,7 @@ These are the potential problems to look out for:
 1. Font Awesome related CSS
 1. Image resources
 1. `/assets` directory structure
+1. Redirect declaration format
 
 ## Subresource Integrity Incidence Response Protocol
 
