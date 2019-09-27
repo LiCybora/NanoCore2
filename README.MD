@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `ac56aabd7cdf137c5db9e9737112fd6eb96f2511` or `1.22.0`
+Upstream commit pin: `135a45a878f5b93bc538f822981e3a42b1e9073f` or `1.22.4`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 
