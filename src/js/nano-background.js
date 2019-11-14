@@ -59,26 +59,21 @@ nano.inject_force_scroll = (tab) => {
     if (vAPI.supportsUserStylesheets)
         payload.cssOrigin = "user";
 
-    vAPI.insertCSS(tab, payload);
+    vAPI.tabs.insertCSS(tab, payload);
 };
 
-nano.recompile_filters = () => {
-    const on_done = () => {
-        vAPI.app.restart();
-    };
+nano.recompile_filters = async () => {
+    await vAPI.storage.set({
+        compiledMagic: -1,
+        selfieMagic: -1,
+    });
 
-    vAPI.storage.set(
-        {
-            compiledMagic: -1,
-            selfieMagic: -1,
-        },
-        on_done,
-    );
+    vAPI.app.restart();
 };
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-nano.enable_integration_filter = () => {
+nano.enable_integration_filter = async () => {
     if (nano.ub.selectedFilterLists.includes("nano-defender"))
         return true;
 
@@ -88,8 +83,8 @@ nano.enable_integration_filter = () => {
     if (nano.ub.selectedFilterLists.length < 10)
         return false;
 
-    nano.ub.saveSelectedFilterLists(["nano-defender"], true);
-    nano.ub.loadFilterLists();
+    await nano.ub.saveSelectedFilterLists(["nano-defender"], true);
+    await nano.ub.loadFilterLists();
 
     return true;
 };
@@ -218,34 +213,34 @@ nano.FilterLinter.prototype.cache_result = function () {
     vAPI.storage.set(entry);
 };
 
-nano.FilterLinter.prototype.restore_result = function () {
-    vAPI.storage.get(this.cache_key, (result) => {
-        if (this.changed)
-            return;
+nano.FilterLinter.prototype.restore_result = async function () {
+    let result = await vAPI.storage.get(this.cache_key);
 
-        const payload = result[this.cache_key];
+    if (this.changed)
+        return;
 
-        if (!payload)
-            return;
+    const payload = result[this.cache_key];
 
-        try {
-            result = JSON.parse(payload);
-        } catch (err) {
-            return;
-        }
+    if (!payload)
+        return;
 
-        if (result instanceof Object === false)
-            return;
+    try {
+        result = JSON.parse(payload);
+    } catch (err) {
+        return;
+    }
 
-        if (Array.isArray(result.warnings))
-            this.warnings = result.warnings;
+    if (result instanceof Object === false)
+        return;
 
-        if (Array.isArray(result.errors))
-            this.errors = result.errors;
+    if (Array.isArray(result.warnings))
+        this.warnings = result.warnings;
 
-        if (typeof result.line === "number")
-            this.line = result.line;
-    });
+    if (Array.isArray(result.errors))
+        this.errors = result.errors;
+
+    if (typeof result.line === "number")
+        this.line = result.line;
 };
 
 nano.FilterLinter.prototype.clear_result = function () {
