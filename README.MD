@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `135a45a878f5b93bc538f822981e3a42b1e9073f` or `1.22.4`
+Upstream commit pin: `a5601b849eca1c7b4b826eb7859649b28daa6ccf` or `1.23.0`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 
@@ -47,9 +47,11 @@ init	 Initialize source development environment
 reset    Nuke development environment and create a fresh one without any
          patches applied
 sync     Resynchronize all existing patches, in order
-apply    Apply all existing patches, in order
-mark     Create a patch based on the difference between tip of applied patches
-         and current code in development environment
+cont     Clear uncommitted changes and continue to resynchronize patches
+         starting from the last one that failed (or from the beginning if
+         nothing failed)
+mark     Create a patch based on the difference between tip of resynchronize
+         patches and current code in development environment
 
 make     Build extension from development environment
 pack     Build, test, then package the extension
@@ -105,6 +107,7 @@ These are the potential problems to look out for:
 1. Image resources
 1. `/assets` directory structure
 1. Redirect declaration format
+1. Existance of `messaging` variable in `popup.js`
 
 ## Subresource Integrity Incidence Response Protocol
 

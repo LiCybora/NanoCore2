@@ -1,27 +1,26 @@
 diff --git a/src/js/shortcuts.js b/src/js/shortcuts.js
-index 43551161..8461face 100644
+index 8741f8d9..31677e1d 100644
 --- a/src/js/shortcuts.js
 +++ b/src/js/shortcuts.js
-@@ -22,11 +22,16 @@
- 'use strict';
+@@ -23,10 +23,16 @@
  
- (function() {
--
+ (( ) => {
+ 
 +    let isMac = navigator.platform.indexOf("Mac");
 +    let CtrlKey = 'MacCtrl';
 +    if (isMac === -1) {
 +        CtrlKey = 'Ctrl';
 +    }
      // https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/commands#Shortcut_values
-     let validStatus0Keys = new Map([
+     const validStatus0Keys = new Map([
          [ 'alt', 'Alt' ],
 -        [ 'control', 'Ctrl' ],
 +        [ 'control', CtrlKey ],
-+        [ 'meta', 'Command'],
++        [ 'meta', 'Command' ],
      ]);
-     let validStatus1Keys = new Map([
+     const validStatus1Keys = new Map([
          [ 'a', 'A' ],
-@@ -91,6 +96,84 @@
+@@ -91,6 +97,84 @@
          [ 'arrowleft', 'Left' ],
          [ 'arrowright', 'Right' ],
          [ 'shift', 'Shift' ],
@@ -105,4 +104,4 @@ index 43551161..8461face 100644
 +        ['']
      ]);
  
-     let commandNameFromElement = function(elem) {
+     const commandNameFromElement = function(elem) {
