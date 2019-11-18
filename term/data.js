@@ -30,7 +30,7 @@ const assert = require("assert");
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-exports.version = "1.0.0.130";
+exports.version = "1.0.0.131";
 
 exports.based_on = [
     "uBlock Origin",
@@ -173,20 +173,29 @@ exports.manifest = (browser) => {
         // TODO: Remove when Edge properly support split mode
         manifest.incognito = "spanning";
     } else if (browser === "firefox") {
-        // TODO: Sidebar action seems to be back upstream
-        // manifest.sidebar_action = {
-        //     "default_title": "__MSG_statsPageName__",
-        //     "default_panel": "logger-ui.html",
-        //     "default_icon": "img/128_on.png",
-        //     "open_at_install": false
-        // },
-        // https://github.com/gorhill/uBlock/commit/c5e3773a3c0480c6900db848c8755d6ec409933f
+        manifest.sidebar_action = {
+            "default_title": "__MSG_statsPageName__",
+            "default_panel": "logger-ui.html",
+            "default_icon": "img/128_on.png",
+            "open_at_install": false
+        };
         manifest.browser_specific_settings = {
             "gecko": {
                 "id": exports.firefox_id,
                 "strict_min_version": "57.0"
             }
         };
+        manifest.permissions = [
+            "menus",
+            "privacy",
+            "storage",
+            "tabs",
+            "unlimitedStorage",
+            "webNavigation",
+            "webRequest",
+            "webRequestBlocking",
+            "<all_urls>"
+        ];
         manifest.browser_action.browser_style = false;
         manifest.content_scripts[0].js = [
             "js/vapi.js",
@@ -202,13 +211,13 @@ exports.manifest = (browser) => {
         ];
         // TODO: Remove when Firefox properly support split mode
         manifest.incognito = "spanning";
-        delete manifest.minimum_chrome_version;
-        delete manifest.optional_permissions;
-        delete manifest.options_page;
         manifest.options_ui = {
             "open_in_tab": true,
             "page": "dashboard.html",
         };
+        delete manifest.minimum_chrome_version;
+        delete manifest.optional_permissions;
+        delete manifest.options_page;
         delete manifest.storage;    
     }
 
