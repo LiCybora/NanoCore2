@@ -6,10 +6,14 @@ sanity test need to be performed manually before each release.
 ## Setup
 
 Actions:
+1. Go to extension manager
+1. View details of sideloaded Nano Adblocker
 1. Open the background console
+1. Enable error collection
 
 Expected:
 1. No error is ever logged to the background console
+1. No error is ever collected
 
 ## Popup Panel
 
@@ -74,6 +78,7 @@ Expected:
 
 www1.example.com#@#+js()
 www2.example.com##+js()
+www3.example.com##+js(nanop-click-elements-onload, a)
 
 ||example.com^$csp=default-src 'none'; report-to https://other.example.com;
 ```
@@ -101,6 +106,7 @@ www2.example.com##+js()
       1. Line `1`: `1` error
    1. Section `4`:
       1. Line `2`: `1` error
+      1. Line `3`: `1` error
    1. Section `5`:
       1. Line `1`: `1` error
 1. Dashboard shows `5` total filters
