@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `a5601b849eca1c7b4b826eb7859649b28daa6ccf` or `1.23.0`
+Upstream commit pin: `2da89489288e2f737d53e0f46e99f0776173aa70` or `1.24.3b5+4`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 
@@ -106,8 +106,12 @@ These are the potential problems to look out for:
 1. Font Awesome related CSS
 1. Image resources
 1. `/assets` directory structure
-1. Redirect declaration format
+1. `scriptlets.js` format
+1. Redirect declaration maps format in `redirect-engine.js`
 1. Existance of `messaging` variable in `popup.js`
+1. Local IP related regular expressions in `storage.js` (may need to update
+   minimization scripts)
+1. CNAME uncloaking (may need to adjust default advanced settings)
 
 ## Subresource Integrity Incidence Response Protocol
 
