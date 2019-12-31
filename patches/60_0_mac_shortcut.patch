@@ -1,5 +1,5 @@
 diff --git a/src/js/shortcuts.js b/src/js/shortcuts.js
-index 8741f8d9..31677e1d 100644
+index 4c1ad766..8a77ae9e 100644
 --- a/src/js/shortcuts.js
 +++ b/src/js/shortcuts.js
 @@ -23,10 +23,16 @@
