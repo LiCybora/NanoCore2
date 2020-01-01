@@ -187,6 +187,7 @@ exports.manifest = (browser) => {
             }
         };
         manifest.permissions = [
+            "dns",
             "menus",
             "privacy",
             "storage",
