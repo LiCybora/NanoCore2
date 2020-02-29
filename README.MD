@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `2da89489288e2f737d53e0f46e99f0776173aa70` or `1.24.3b5+4`
+Upstream commit pin: `11037fc6698cfd3aca94afe68570c1a39fff4960` or `1.25.0`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 
@@ -46,7 +46,9 @@ Terminal to create and manage development environment.
 init	 Initialize source development environment
 reset    Nuke development environment and create a fresh one without any
          patches applied
-sync     Resynchronize all existing patches, in order
+apply    Apply all existing patches, in order, starting from the beginning
+sync     Resynchronize all existing patches, in order, starting from the
+         beginning
 cont     Clear uncommitted changes and continue to resynchronize patches
          starting from the last one that failed (or from the beginning if
          nothing failed)
@@ -118,7 +120,11 @@ These are the potential problems to look out for:
 1. Existance of `messaging` variable in `popup.js`
 1. Local IP related regular expressions in `storage.js` (may need to update
    minimization scripts)
+1. Filters header parsing logic in `storage.js` (may need to update
+   MirrorEngine)
 1. CNAME uncloaking (may need to adjust default advanced settings)
+1. Local IP detection logic in `storage.js` (may need to update NanoMeow legacy
+   server and NanoFilters build script)
 
 ## Subresource Integrity Incidence Response Protocol
 

@@ -229,6 +229,24 @@ cmd_handlers.set("reset", async () => {
     }
 
     busy = false;
+
+    term.ready();
+});
+
+cmd_handlers.set("apply", async () => {
+    busy = true;
+
+    try {
+        for (const p of config.Patches)
+            await apply(p);
+
+        await commit();
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+
     term.ready();
 });
 
@@ -279,7 +297,7 @@ cmd_handlers.set("mark", async () => {
 
 const browsers = [
 	"chromium", 
-	"edge", 
+	// "edge", 
 	"firefox",
 ];
 
@@ -511,6 +529,7 @@ cmd_handlers.set("reload", async () => {
 
 cmd_handlers.set("exit", () => {
     busy = true;
+
     term.destructor();
 });
 

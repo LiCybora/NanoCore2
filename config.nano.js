@@ -81,8 +81,7 @@
 
             "./patches/60_0_mac_shortcut.patch",
             
-            "./patches/90_0_temporary_migration.patch",
-            "./patches/90_1_temporary_bug_fix.patch",
+            "./patches/90_0_assets_migration.patch",
 
             // ----------------------------------------------------------------------------------------------------- //
 

@@ -42,17 +42,6 @@
     ],
     "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
   },
-  "nano-annoyance": {
-    "content": "filters",
-    "group": "default",
-    "title": "Nano filters – Annoyance",
-    "off": true,
-    "contentURL": [
-      "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
-      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt"
-    ],
-    "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
-  },
   "nano-whitelist": {
     "content": "filters",
     "group": "default",
@@ -100,14 +89,6 @@
     "supportURL": "https://github.com/uBlockOrigin/uAssets/issues",
     "instructionURL": "https://github.com/gorhill/uBlock/wiki/Badware-risks"
   },
-  "ublock-experimental": {
-    "content": "filters",
-    "group": "default",
-    "title": "uBlock filters – Experimental",
-    "off": true,
-    "contentURL": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/experimental.txt",
-    "instructionURL": "https://github.com/gorhill/uBlock/wiki/Experimental-filters"
-  },
   "ublock-privacy": {
     "content": "filters",
     "group": "default",
@@ -126,14 +107,6 @@
       "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt",
       "assets/ThirdParty/uBlockAbuse.txt"
     ],
-    "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
-  },
-  "ublock-annoyances": {
-    "content": "filters",
-    "group": "default",
-    "title": "uBlock filters – Annoyances",
-    "off": true,
-    "contentURL": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt",
     "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
   },
   "ublock-unbreak": {
@@ -273,6 +246,25 @@
   },
 
 
+  "nano-annoyance": {
+    "content": "filters",
+    "group": "social",
+    "title": "Nano filters – Annoyance",
+    "off": true,
+    "contentURL": [
+      "https://raw.githubusercontent.com/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt",
+      "https://gitcdn.xyz/repo/NanoAdblocker/NanoFilters/master/NanoFilters/NanoAnnoyance.txt"
+    ],
+    "supportURL": "https://github.com/NanoAdblocker/NanoFilters/issues"
+  },
+  "ublock-annoyances": {
+    "content": "filters",
+    "group": "social",
+    "title": "uBlock filters – Annoyances",
+    "off": true,
+    "contentURL": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt",
+    "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
+  },
   "adguard-annoyance": {
     "content": "filters",
     "group": "social",
@@ -351,6 +343,15 @@
     "contentURL": "https://hosts-file.net/ad_servers.txt",
     "supportURL": "https://hosts-file.net/"
   },
+  "mvps-0": {
+    "content": "filters",
+    "group": "multipurpose",
+    "updateAfter": 5,
+    "off": true,
+    "title": "MVPS HOSTS",
+    "contentURL": "https://winhelp2002.mvps.org/hosts.txt",
+    "supportURL": "https://winhelp2002.mvps.org/"
+  },
   "plowe-0": {
     "content": "filters",
     "group": "multipurpose",
@@ -397,8 +398,7 @@
     "off": true,
     "title": "CHN: EasyList China (中文)",
     "lang": "zh",
-    "contentURL": "https://easylist-downloads.adblockplus.org/easylistchina.txt",
-    "supportURL": "http://abpchina.org/forum/forum.php"
+    "contentURL": "https://easylist-downloads.adblockplus.org/easylistchina.txt"
   },
   "CHN-1": {
     "content": "filters",
@@ -407,8 +407,7 @@
     "title": "CHN: CJX's EasyList Lite",
     "lang": "zh",
     "contentURL": "https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt",
-    "supportURL": "https://github.com/cjx82630/cjxlist",
-    "instructionURL": "http://abpchina.org/forum/forum.php?mod=viewthread&tid=29667"
+    "supportURL": "https://github.com/cjx82630/cjxlist"
   },
   "CZE-0": {
     "content": "filters",
@@ -541,15 +540,6 @@
     "contentURL": "https://filters.adtidy.org/extension/ublock/filters/7.txt",
     "supportURL": "https://github.com/AdguardTeam/AdguardFilters#adguard-filters",
     "instructionURL": "https://kb.adguard.com/en/general/adguard-ad-filters"
-  },
-  "KOR-0": {
-    "content": "filters",
-    "group": "regions",
-    "off": true,
-    "title": "KOR: Korean Adblock List",
-    "lang": "ko",
-    "contentURL": "https://raw.githubusercontent.com/gfmaster/adblock-korea-contrib/master/filter.txt",
-    "supportURL": "https://github.com/gfmaster/adblock-korea-contrib"
   },
   "KOR-1": {
     "content": "filters",
