@@ -7,7 +7,7 @@
     "archiver": "3.1.1",
     "esprima": "4.0.1",
     "del": "~3.0.0",
-    "fs-extra": "8.1.0",
+    "fs-extra": "9.0.0",
     "sign-addon": "~0.3.1",
     "yauzl": "2.10.0"
   },
@@ -20,5 +20,5 @@
   "name": "nano-core-2-term-mod",
   "private": true,
   "repository": "https://github.com/LiCybora/NanoCore2",
-  "version": "1.0.10"
+  "version": "1.0.11"
 }
