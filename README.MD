@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `11037fc6698cfd3aca94afe68570c1a39fff4960` or `1.25.0`
+Upstream commit pin: `1295e25961520d5dafab40abc16e8153d76ea06a` or `1.26.0`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 
@@ -27,9 +27,8 @@ Your language is not listed? Submit an issue to let me know.
    1. `git clone --depth 1 https://github.com/LiCybora/NanoCore2.git`
    1. `git clone --depth 1 https://github.com/NanoAdblocker/NanoFilters.git`
    1. `git clone --depth 1 https://github.com/LiCybora/NanoDefenderFirefox -b moz`
-1. Run `git clone --depth 1 https://github.com/gorhill/uBlock.git` in an
-   appropriate directory to get upstream. Check out a tag or commit as
-   appropriate.
+1. Run `git clone https://github.com/gorhill/uBlock.git` in an appropriate
+   directory to get upstream. Check out a tag or commit as appropriate.
 1. In Nano Core 2 repository:
    1. Navigate to `/term` directory and run `npm install`.
    1. Update `/config.json` as appropriate.
@@ -107,7 +106,7 @@ exit     Exit the terminal
 1. Add tags to repositories, and upload packages
 1. Upload packages to extension stores
 
-## Version Update Watchlist
+## Version Update Extended Checklist
 
 These are the potential problems to look out for:
 
