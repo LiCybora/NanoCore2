@@ -192,8 +192,8 @@
         },
 
         nano_l_filter_negated_html_filtering: {
-            message: "Negated domain is not yet supported for HTML filtering.",
-            description: "Warning when negated domain used with HTML filtering",
+            message: "Negated domains are not yet supported for HTML filtering.",
+            description: "Warning when negated domains used with HTML filtering",
         },
 
         // TODO: Not used
@@ -231,6 +231,11 @@
         nano_l_filter_resource_alias_used: {
             message: "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
             description: "Warning when resource alias used",
+        },
+
+        nano_l_html_filtering_not_supported: {
+            message: "HTML filtering is not supported by your browser",
+            description: "Warning when HTML filtering is used on unsupported platforms",
         },
 
         // --------------------------------------------------------------------------------------------------------- //
@@ -313,6 +318,11 @@
             description: "Error when 'domain=' has invalid arguments",
         },
 
+        nano_l_filter_bad_denyallow_option_arguments: {
+            message: "The option 'denyallow=...' has invalid arguments.",
+            description: "Error when 'denyallow=' has invalid arguments",
+        },
+
         nano_l_filter_bad_csp_option_arguments: {
             message: "The option 'csp=...' has no arguments or has invalid arguments.",
             description: "Error when 'csp=' has no arguments or has invalid arguments",
@@ -341,6 +351,11 @@
         nano_l_filter_too_short: {
             message: "This network rule is too short.",
             description: "Error when network rule is too short",
+        },
+
+        nano_l_filter_matcher_too_long: {
+            message: "The matcher of this network rule is too long.",
+            description: "Error when network matcher is too long",
         },
 
         nano_l_filter_generic_js_in_block: {

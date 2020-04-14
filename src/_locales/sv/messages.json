@@ -92,8 +92,8 @@
     "description": "Warning when a rule is convered to exception because all negated domains"
   },
   "nano_l_filter_negated_html_filtering": {
-    "message": "Förnekande domäner stöds inte ännu för HTML-filtrering.",
-    "description": "Warning when negated domain used with HTML filtering"
+    "message": "Negated domains are not yet supported for HTML filtering.",
+    "description": "Warning when negated domains used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
     "message": "Nano förkastade typalternativet '{{type}}' eftersom det inte kan bli förnekande.",
@@ -122,6 +122,10 @@
   "nano_l_filter_resource_alias_used": {
     "message": "'{{alias}}' är aliaset av '{{res}}', överväg att använda det riktiga namnet i stället.",
     "description": "Warning when resource alias used"
+  },
+  "nano_l_html_filtering_not_supported": {
+    "message": "HTML-filtrering stöds inte av din webbläsare",
+    "description": "Warning when HTML filtering is used on unsupported platforms"
   },
   "nano_l_filter_comment_bracket": {
     "message": "'[' används inte längre som kommentar, använd i stället '!'.",
@@ -179,6 +183,10 @@
     "message": "Alternativet 'domain=...' har ogiltiga argument.",
     "description": "Error when 'domain=' has invalid arguments"
   },
+  "nano_l_filter_bad_denyallow_option_arguments": {
+    "message": "Alternativet 'denyallow=...' har ogiltiga argument.",
+    "description": "Error when 'denyallow=' has invalid arguments"
+  },
   "nano_l_filter_bad_csp_option_arguments": {
     "message": "Alternativet 'csp=...' har inget argument eller så är argumentet ogiltigt.",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
@@ -203,8 +211,12 @@
     "message": "Den här nätverksregeln är för kort.",
     "description": "Error when network rule is too short"
   },
+  "nano_l_filter_matcher_too_long": {
+    "message": "Matchen för denna nätverksregel är för lång.",
+    "description": "Error when network matcher is too long"
+  },
   "nano_l_filter_generic_js_in_block": {
-    "message": "Script injection syntax that selects all resources can only be used in exception filters.",
+    "message": "Skriptinjektionssyntax som väljer alla resurser kan endast användas i undantagsfilter.",
     "description": "Error when '##+js()' is used"
   },
   "nano_l_filter_intervention_smed79": {
@@ -240,7 +252,7 @@
     "description": "Warning when redirect failed initial test, use '{{regexp}}' to denote the tester if needed"
   },
   "nano_r_simplified_to_star": {
-    "message": "Nano simplified the matcher of this rule to '*'.",
+    "message": "Nano förenklade matcharen av denna regel till '*'.",
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {

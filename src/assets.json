@@ -76,6 +76,10 @@
       "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt",
       "assets/ThirdParty/uBlockBase.txt"
     ],
+    "cdnURLs": [
+      "https://gitcdn.xyz/repo/uBlockOrigin/uAssets/master/filters/filters.txt",
+      "https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@master/filters/filters.txt"
+    ],
     "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
   },
   "ublock-badware": {
@@ -203,13 +207,6 @@
   },
 
 
-  "disconnect-malvertising": {
-    "content": "filters",
-    "group": "malware",
-    "off": true,
-    "title": "Malvertising filter list by Disconnect",
-    "contentURL": "https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt"
-  },
   "malware-0": {
     "content": "filters",
     "group": "malware",
@@ -333,15 +330,6 @@
     "title": "Dan Pollock's hosts file",
     "contentURL": "https://someonewhocares.org/hosts/hosts",
     "supportURL": "https://someonewhocares.org/hosts/"
-  },
-  "hphosts": {
-    "content": "filters",
-    "group": "multipurpose",
-    "updateAfter": 5,
-    "off": true,
-    "title": "hpHosts' Ad and tracking servers",
-    "contentURL": "https://hosts-file.net/ad_servers.txt",
-    "supportURL": "https://hosts-file.net/"
   },
   "mvps-0": {
     "content": "filters",
