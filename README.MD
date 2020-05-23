@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `1295e25961520d5dafab40abc16e8153d76ea06a` or `1.26.0`
+Upstream commit pin: `d9133378f2cf059f28f43a289816c46331e9afd3` or `1.27.6`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 
@@ -42,15 +42,16 @@ You should not modify the upstream repository, instead, use Nano Core 2
 Terminal to create and manage development environment.
 
 ```
-init	 Initialize source development environment
-reset    Nuke development environment and create a fresh one without any
-         patches applied
+init	   Initialize source development environment
+reset    Delete development environment and create a fresh one using upstream
+         repository, uncommitted changes in the fresh development environment
+         will be cleared
 apply    Apply all existing patches, in order, starting from the beginning
 sync     Resynchronize all existing patches, in order, starting from the
          beginning
 cont     Clear uncommitted changes and continue to resynchronize patches
-         starting from the last one that failed (or from the beginning if
-         nothing failed)
+         starting from the last one that failed or from the beginning as
+         appropriate
 mark     Create a patch based on the difference between tip of resynchronize
          patches and current code in development environment
 
@@ -110,20 +111,27 @@ exit     Exit the terminal
 
 These are the potential problems to look out for:
 
-1. Development build detection logic
-1. Font Awesome related CSS
-1. Image resources
-1. `/assets` directory structure
-1. `scriptlets.js` format
-1. Redirect declaration maps format in `redirect-engine.js`
-1. Existance of `messaging` variable in `popup.js`
-1. Local IP related regular expressions in `storage.js` (may need to update
-   minimization scripts)
-1. Filters header parsing logic in `storage.js` (may need to update
-   MirrorEngine)
-1. CNAME uncloaking (may need to adjust default advanced settings)
-1. Local IP detection logic in `storage.js` (may need to update NanoMeow legacy
-   server and NanoFilters build script)
+1. Changes to development build detection logic
+1. Changes to Font Awesome related CSS
+1. Changes to image resources
+   - Update build scripts to adapt
+1. Changes to `/assets` directory structure
+1. Changes to `scriptlets.js` format
+   - Update build scripts and extended script snippets manifest to adapt
+1. Changes to redirect declaration maps format in `redirect-engine.js`
+   - Update `nano-background.js` to adapt
+1. Renaming or removal of `messaging` and `popupData` variables in `popup.js`
+   and `popup-fenix.js`
+1. Changes to filters header parsing logic in `storage.js`
+   - Update MirrorEngine to adapt
+1. Changes to CNAME uncloaking Chromium support
+   - Consider changing the default settings to disabled
+1. Changes to local IP detection logic in `storage.js`
+   - Update build scripts in NanoFilters and NanoMeow legacy server to adapt
+1. Changes to filters syntax
+   - Update NanoFilters, NanoContrib, and Nano Defender Integration to adapt
+1. Changes to documented behaviors
+   - Update documentations in NanoCore, NanoCore2, and NanoDoc to adapt
 
 ## Subresource Integrity Incidence Response Protocol
 

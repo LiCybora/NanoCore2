@@ -30,12 +30,12 @@ const assert = require("assert");
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
-exports.version = "1.0.0.142";
+exports.version = "1.0.0.147";
 
 exports.based_on = [
     "uBlock Origin",
-    "Version/1.26.0",
-    "Commit/1295e25",
+    "Version/1.27.6",
+    "Commit/d913337",
     "UserCSS/disabled",
 ].join(" ");
 
@@ -57,7 +57,7 @@ exports.manifest = (browser) => {
             default_icon: {
                 128: "img/128_on.png",
             },
-            default_popup: "popup.html",
+            default_popup: "popup-fenix.html",
             default_title: "Nano Adblocker",
         },
         commands: {
@@ -69,6 +69,9 @@ exports.manifest = (browser) => {
             },
             "launch-logger": {
                 description: "__MSG_popupTipLog__",
+            },
+            "open-dashboard": {
+                description: "__MSG_popupTipDashboard__",
             },
             "relax-blocking-mode": {
                 description: "__MSG_relaxBlockingMode__",

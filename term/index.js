@@ -28,6 +28,10 @@
 
 const APP_NAME = "Nano Core 2 Terminal";
 
+process.on("unhandledRejection", (err) => {
+    throw err;
+});
+
 // ----------------------------------------------------------------------------------------------------------------- //
 
 const assert = require("assert");
@@ -42,6 +46,8 @@ const Term = require("./term.js");
 // ----------------------------------------------------------------------------------------------------------------- //
 
 let busy = true;
+
+let last_sync_i = 0;
 
 // ----------------------------------------------------------------------------------------------------------------- //
 
@@ -97,11 +103,16 @@ const config_load = async () => {
 
     assert(Array.isArray(config.Patches));
 
+    const patches = new Set(config.Patches);
+    assert(patches.size === config.Patches.length);
+
     validate_path(config.Source);
     validate_path(config.Target);
     validate_path(config.Output);
 
     build.src_repo = config.Target;
+
+    last_sync_i = 0;
 };
 
 // ----------------------------------------------------------------------------------------------------------------- //
@@ -177,7 +188,9 @@ const diff = async (p) => {
     });
 };
 
-let last_sync_i = 0;
+const reset = async () => {
+    await exec(0, "git", exec_opt(), "reset", "--hard");
+};
 
 const sync = async (cont) => {
     if (!cont)
@@ -218,15 +231,21 @@ cmd_handlers.set("reset", async () => {
     busy = true;
 
     try {
+        // Need to wait a bit in between or there could be problems on Windows
         await fs.remove(config.Target);
 
-        // Need to wait a bit in between or there could be problems on Windows
         await sleep(100);
 
         await fs.copy(config.Source, config.Target);
+
+        await sleep(100);
+
+        await reset();
     } catch (err) {
         term.write_line(err.stack);
     }
+
+    last_sync_i = 0;
 
     busy = false;
 
@@ -244,6 +263,8 @@ cmd_handlers.set("apply", async () => {
     } catch (err) {
         term.write_line(err.stack);
     }
+
+    last_sync_i = 0;
 
     busy = false;
 
@@ -268,7 +289,7 @@ cmd_handlers.set("cont", async () => {
     busy = true;
 
     try {
-        await exec(0, "git", exec_opt(), "reset", "--hard");
+        await reset();
         await sync(true);
     } catch (err) {
         term.write_line(err.stack);
@@ -534,10 +555,6 @@ cmd_handlers.set("exit", () => {
 });
 
 // ----------------------------------------------------------------------------------------------------------------- //
-
-process.on("unhandledRejection", (err) => {
-    throw err;
-});
 
 term.title(APP_NAME).write_line(APP_NAME);
 
