@@ -1,0 +1,87 @@
+diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
+index ad7813dd..e8718424 100644
+--- a/platform/chromium/vapi-background.js
++++ b/platform/chromium/vapi-background.js
+@@ -61,24 +61,12 @@ vAPI.app = {
+     version: manifest.version,
+ 
+     intFromVersion: function(s) {
+-        const parts = s.match(/(?:^|\.|b|rc)\d+/g);
+-        if ( parts === null ) { return 0; }
+-        let vint = 0;
+-        for ( let i = 0; i < 4; i++ ) {
+-            const pstr = parts[i] || '';
+-            let pint;
+-            if ( pstr === '' ) {
+-                pint = 0;
+-            } else if ( pstr.startsWith('.') || pstr.startsWith('b') ) {
+-                pint = parseInt(pstr.slice(1), 10);
+-            } else if ( pstr.startsWith('rc') ) {
+-                pint = parseInt(pstr.slice(2), 10) + 100;
+-            } else {
+-                pint = parseInt(pstr, 10);
+-            }
+-            vint = vint * 1000 + pint;
++        const parts = s.split('.');
++        if ( parts[3] === '0' ) { // Legacy Edge
++            return parseInt(parts[2], 10);
++        } else {
++            return parseInt(parts[3], 10);
+         }
+-        return vint;
+     },
+ 
+     restart: function() {
+diff --git a/src/js/start.js b/src/js/start.js
+index 23db0edf..e080eb0e 100644
+--- a/src/js/start.js
++++ b/src/js/start.js
+@@ -108,7 +108,7 @@ const onVersionReady = function(lastVersion) {
+ 
+     // https://github.com/uBlockOrigin/uBlock-issues/issues/494
+     //   Remove useless per-site switches.
+-    if ( lastVersionInt <= 1019003007 ) {
++    if ( lastVersionInt <= 111 ) {
+         µb.sessionSwitches.toggle('no-scripting', 'behind-the-scene', 0);
+         µb.permanentSwitches.toggle('no-scripting', 'behind-the-scene', 0);
+         µb.saveHostnameSwitches();
+@@ -116,19 +116,28 @@ const onVersionReady = function(lastVersion) {
+ 
+     // Configure new popup panel according to classic popup panel
+     // configuration.
+-    if ( lastVersionInt !== 0 ) {
+-        if ( lastVersionInt <= 1026003014 ) {
+-            µb.userSettings.popupPanelSections =
+-                µb.userSettings.dynamicFilteringEnabled === true ? 0b11111 : 0b01111;
+-            µb.userSettings.dynamicFilteringEnabled = undefined;
+-            µb.saveUserSettings();
+-        } else if (
+-            lastVersionInt <= 1026003016 &&
+-            (µb.userSettings.popupPanelSections & 1) !== 0
+-        ) {
++    if ( lastVersionInt !== 0 && lastVersionInt <= 142 ) {
++        µb.userSettings.popupPanelSections =
++            µb.userSettings.dynamicFilteringEnabled === true ? 0b1 : 0b0;
++        µb.userSettings.dynamicFilteringEnabled = undefined;
++        µb.saveUserSettings();
++    }
++
++    // Migration specific to Nano
++    if ( lastVersionInt !== 0 && lastVersionInt <= 145 ) {
++        try {
++            // Hidden settings
++            µb.hiddenSettings.popupPanelDisabledSections = 0b000000;
++            µb.hiddenSettings.popupPanelLockedSections   = 0b100111;
++            µb.saveHiddenSettings();
++            // User settings
+             µb.userSettings.popupPanelSections =
+-                (µb.userSettings.popupPanelSections << 1 | 1) & 0b111111;
++                µb.userSettings.popupPanelSections ? 0b11111 : 0b01111;
+             µb.saveUserSettings();
++            // Done
++            console.log('migration finished');
++        } catch (err) {
++            console.error(err);
+         }
+     }
+ 
