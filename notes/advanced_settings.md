@@ -11,6 +11,7 @@ however, the default value of some settings are different:
 - `autoUpdatePeriod` defaults to `4`
 - `extensionUpdateForceReload` defaults to `true`
 - `manualUpdateAssetFetchPeriod` defaults to `1` <sup>1</sup>
+- `popupPanelLockedSections` defaults to `39` (`0b100111`)
 
 <sup>1</sup> When fetching assets, you should either get them all done in one
 burst or wait a significant delay between them. It is expensive to keep sockets
@@ -19,7 +20,7 @@ open is how
 [Slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security))
 attacks are carried out.
 
-Beside different defaults, Nano Adblocker also offers a few more
+Beside the differences above, Nano Adblocker also offers a few more
 functionalities in the advanced settings page. These advanced functionalities
 **can change or break at any time**, make sure to back up your settings if you
 want to play around with them. Please open an issue when they break for you, or

@@ -4,7 +4,7 @@
     "url": "https://github.com/LiCybora/NanoCoreFirefox/issues"
   },
   "dependencies": {
-    "archiver": "3.1.1",
+    "archiver": "4.0.1",
     "esprima": "4.0.1",
     "del": "~3.0.0",
     "fs-extra": "9.0.0",
@@ -20,5 +20,5 @@
   "name": "nano-core-2-term-mod",
   "private": true,
   "repository": "https://github.com/LiCybora/NanoCore2",
-  "version": "1.0.13"
+  "version": "1.0.14"
 }

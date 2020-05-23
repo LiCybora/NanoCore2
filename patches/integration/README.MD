@@ -36,11 +36,23 @@ settings page.
 
 ## Group `20`: Popup Changes
 
-`20_0_popup_tweaks.patch`: Cosmetic tweaks to the popup.
+`20_0_force_scroll_background.patch`: Background code for force scroll mode.
 
-`20_1_force_scroll.patch`: Enable force scroll mode button in popup panel.
+`20_1_bug_reporter_background.patch`: Background code for bug reporter.
 
-`20_2_bug_reporter.patch`: Open bug reporter button in popup panel.
+`21_0_popup_tweaks.patch`: Cosmetic tweaks to the classic popup.
+
+`21_1_force_scroll.patch`: Force scroll button for the classic popup.
+
+`21_2_bug_reporter.patch`: Bug reporter button for the classic popup.
+
+`22_0_new_popup_tweaks.patch`: Cosmetic tweaks to the new popup.
+
+`22_1_font_awesome.patch`: Integrate FontAwesome to the new popup.
+
+`22_2_new_force_scroll.patch`: Force scroll button for the new popup.
+
+`22_3_new_bug_reporter.patch`: Bug reporter button for the new popup.
 
 ## Group `30`: Dashboard Changes
 
@@ -53,7 +65,4 @@ Adblocker and uBlock Origin.
 
 ## Group `90`: Other Changes
 
-`90_0_edgyfy.patch`: Integrate with Edgyfy. Only needed for Edge browser,
-although it is safe on other browsers.
-
-`90_1_settings_migration.patch`: Fix settings migration.
+`90_0_settings_migration.patch`: Fix settings migration.

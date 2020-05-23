@@ -1,0 +1,80 @@
+diff --git a/src/css/popup-fenix.css b/src/css/popup-fenix.css
+index 20627607..3f99c13f 100644
+--- a/src/css/popup-fenix.css
++++ b/src/css/popup-fenix.css
+@@ -70,7 +70,7 @@ hr {
+     display: flex;
+     fill: var(--popup-power-ink);
+     flex-grow: 1;
+-    font-size: 96px;
++    font-size: 72px;
+     justify-content: center;
+     margin: 0 var(--popup-gap-thin);
+     padding: 0;
+@@ -104,7 +104,18 @@ body.off #switch {
+ .rulesetTools [id]:not(:first-of-type) {
+     margin-top: 0.2em;
+     }
+-body.needReload #refresh,
++.rulesetTools #refresh {
++    background-color: transparent;
++    border: none;
++    font-size: 2.9em;
++    visibility: visible;
++    }
++body.needReload #refresh {
++    fill: var(--red-60);
++    }
++body.needReload #refresh:hover {
++    fill: var(--default-ink);
++    }
+ body.needSave #saveRules,
+ body.needSave #revertRules {
+     visibility: visible;
+diff --git a/src/js/background.js b/src/js/background.js
+index 920072e6..dc304bef 100644
+--- a/src/js/background.js
++++ b/src/js/background.js
+@@ -70,7 +70,7 @@ const µBlock = (( ) => { // jshint ignore:line
+         nanoMakeUserFiltersPrivileged: false,
+         popupFontSize: 'unset',
+         popupPanelDisabledSections: 0,
+-        popupPanelLockedSections: 0,
++        popupPanelLockedSections: 39, // 0b100111
+         requestJournalProcessPeriod: 1000,
+         selfieAfter: 3,
+         strictBlockingBypassDuration: 120,
+diff --git a/src/js/popup-fenix.js b/src/js/popup-fenix.js
+index 579c46b9..8b074c96 100644
+--- a/src/js/popup-fenix.js
++++ b/src/js/popup-fenix.js
+@@ -622,6 +622,7 @@ let renderOnce = function() {
+         }
+     }
+ 
++    uDom.nodeFromId('nano_app_name').textContent = popupData.appName;
+     uDom.nodeFromId('version').textContent = popupData.appVersion;
+ 
+     sectionBitsToAttribute(computedSections());
+diff --git a/src/popup-fenix.html b/src/popup-fenix.html
+index 4d0c495f..2f56ff6d 100644
+--- a/src/popup-fenix.html
++++ b/src/popup-fenix.html
+@@ -36,7 +36,7 @@
+                  --></span>
+                 </div>
+                 <div class="rulesetTools">
+-                    <span id="refresh" class="fa-icon">refresh</span>
++                    <span id="refresh" class="fa-icon" data-i18n-title="nano_p_refresh_button">refresh</span>
+                 </div>
+             </div>
+             <div id="hostname"><span></span>&shy;<span></span></div>
+@@ -64,7 +64,7 @@
+         </div>
+         <hr data-more="f">
+         <div class="itemRibbon" data-more="f">
+-            <span data-i18n="popupVersion"></span><span id="version"></span>
++            <span id="nano_app_name"></span><span id="version"></span>
+         </div>
+         <hr>
+         <div id="moreOrLess">

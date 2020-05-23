@@ -78,7 +78,8 @@
     ],
     "cdnURLs": [
       "https://gitcdn.xyz/repo/uBlockOrigin/uAssets/master/filters/filters.txt",
-      "https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@master/filters/filters.txt"
+      "https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@master/filters/filters.txt",
+      "https://cdn.statically.io/gh/uBlockOrigin/uAssets/master/filters/filters.txt"
     ],
     "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
   },
@@ -120,6 +121,11 @@
     "contentURL": [
       "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt",
       "assets/ThirdParty/uBlockUnbreak.txt"
+    ],
+    "cdnURLs": [
+      "https://gitcdn.xyz/repo/uBlockOrigin/uAssets/master/filters/unbreak.txt",
+      "https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@master/filters/unbreak.txt",
+      "https://cdn.statically.io/gh/uBlockOrigin/uAssets/master/filters/unbreak.txt"
     ],
     "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
   },
@@ -172,7 +178,12 @@
     "updateAfter": 5,
     "off": true,
     "title": "Nano contrib filter – Placeholder buster",
-    "contentURL": "https://gitcdn.xyz/repo/NanoAdblockerLab/NanoContrib/master/dist/placeholder-buster.txt"
+    "contentURL": "https://raw.githubusercontent.com/NanoAdblockerLab/NanoContrib/master/dist/placeholder-buster.txt",
+    "cdnURLs": [
+      "https://gitcdn.xyz/repo/NanoAdblockerLab/NanoContrib/master/dist/placeholder-buster.txt",
+      "https://cdn.jsdelivr.net/gh/NanoAdblockerLab/NanoContrib@master/dist/placeholder-buster.txt"
+    ],
+    "supportURL": "https://github.com/NanoAdblockerLab/NanoContrib"
   },
 
 
@@ -260,6 +271,11 @@
     "title": "uBlock filters – Annoyances",
     "off": true,
     "contentURL": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt",
+    "cdnURLs": [
+      "https://gitcdn.xyz/repo/uBlockOrigin/uAssets/master/filters/annoyances.txt",
+      "https://cdn.jsdelivr.net/gh/uBlockOrigin/uAssets@master/filters/annoyances.txt",
+      "https://cdn.statically.io/gh/uBlockOrigin/uAssets/master/filters/annoyances.txt"
+    ],
     "supportURL": "https://github.com/uBlockOrigin/uAssets/issues"
   },
   "adguard-annoyance": {
