@@ -52,13 +52,8 @@ ace.define("ace/mode/nano_filters", function (require, exports, module) {
     exports.Mode = function () {
         this.HighlightRules = HighlightRules;
         this.lineCommentStart = "!";
-        this.tokenRe = new RegExp(
-            "^[" +
-            unicode.packages.L + unicode.packages.Mn + unicode.packages.Mc + unicode.packages.Nd +
-            unicode.packages.Pc +
-            "\\-_.]+",
-            "g"
-        );
+        this.tokenRe = new RegExp("^[" + unicode.wordChars + "\\$_]+", "g");
+
     };
     oop.inherits(exports.Mode, TextMode);
 });
