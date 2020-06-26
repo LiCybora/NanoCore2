@@ -43,6 +43,7 @@ const path = require("path");
 
 const build = require("./build.js");
 const crowdin = require("./crowdin.js");
+const syntax = require("./syntax.js");
 const Term = require("./term.js");
 
 // ----------------------------------------------------------------------------------------------------------------- //
@@ -432,6 +433,20 @@ for (const b of browsers) {
         term.ready();
     });
 }
+
+cmd_handlers.set("check", async () => {
+    busy = true;
+
+    try {
+        await syntax.validate_dir("./src");
+    } catch (err) {
+        term.write_line(err.stack);
+    }
+
+    busy = false;
+
+    term.ready();
+});
 
 cmd_handlers.set("publish", async () => {
     busy = true;

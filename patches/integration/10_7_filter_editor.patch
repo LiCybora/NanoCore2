@@ -1,5 +1,5 @@
 diff --git a/src/1p-filters.html b/src/1p-filters.html
-index 27a2c81d..5a66b492 100644
+index 27a2c81d..44918086 100644
 --- a/src/1p-filters.html
 +++ b/src/1p-filters.html
 @@ -5,16 +5,12 @@
@@ -32,8 +32,8 @@ index 27a2c81d..5a66b492 100644
 -
 -<script src="js/codemirror/search.js"></script>
 -<script src="js/codemirror/ubo-static-filtering.js"></script>
-+<script src="lib/ace/ace-1.4.11.js"></script>
-+<script src="lib/ace/ext-searchbox-1.4.11.js"></script>
++<script src="lib/ace/ace.js"></script>
++<script src="lib/ace/ext-searchbox.js"></script>
 +<script src="js/nano-editor.js"></script>
  
  <script src="js/fa-icons.js"></script>
