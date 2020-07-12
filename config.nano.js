@@ -87,6 +87,8 @@
             "./patches/60_0_mac_shortcut.patch",
             
             "./patches/90_0_assets_migration.patch",
+            "./patches/90_1_cherry_pick_fixes.patch",
+            "./patches/90_2_cherry_pick_script_snippets.patch",
 
             // ----------------------------------------------------------------------------------------------------- //
 

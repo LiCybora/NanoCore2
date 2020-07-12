@@ -4,7 +4,7 @@ Restarting fresh on Firefox.
 
 A patch driven fork of uBlock Origin.
 
-Upstream commit pin: `c0edebb28ad2c7bbf83e402b8379c507a33fc7cf` or `1.27.8`
+Upstream commit pin: `76eaef4d2b13bbc1b64d230182cac8f6523a9b17` or `1.27.10`
 
 The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
 
@@ -57,6 +57,7 @@ mark     Create a patch based on the difference between tip of resynchronize
 
 make     Build extension from development environment
 pack     Build, test, then package the extension
+check    Check the syntax of files under the "/src" directory
 publish  Build, test, package, then publish the extension
          Optionally pass browser name to make/pack/publish for only one browser
 clean    Remove all build files
@@ -133,6 +134,16 @@ These are the potential problems to look out for:
 1. Changes to documented behaviors
    - Update documentations in NanoCore, NanoCore2, and NanoDoc to adapt
 
+## Assets Manifest Update Checklist
+
+1. When assets are removed
+   - Open an issue in UltimateMirror to schedule removal of matching mirrored
+     file
+   - Remove the mirrored file after a few months
+1. When assets that are enabled by default have changed
+   - Update NanoFilters build scripts
+   - Delete and refresh third party assets cache
+
 ## Subresource Integrity Incidence Response Protocol
 
 When there is a severe issue with the content of a subresource, an intervention
@@ -153,10 +164,16 @@ Later, the intervention can be lifted as follows:
    MirrorEngine
 1. Unlock the subresource in UltimateMirror
 
+## External Dependencies
+
+1. Ace
+   - `src-noconflict/ace.js` `15.04.20` (`1.4.10`)
+   - `src-noconflict/ext-searchbox.js` `21.02.19`
+
 ## Tips
 
 To update a patch, simply paste further changes to the bottom of that patch and
 `sync` them in.
 
-To fix conflict, either edit the broken patch file manually or disable it
-along with patches after it then recreate the changes.
+To fix conflict, either edit the broken patch file manually or disable it along
+with patches after it then recreate the changes.

@@ -33,7 +33,7 @@ sanity test need to be performed manually before each release.
 **Expected**
 1. The confirm prompt mentions `Nano`
 1. Settings are restored (check outdated warning markers in `Filter lists` tab)
-1. Filters cache is purged (check the timestamp of `Malware Domain List`)
+1. Filters cache is purged (check the last modified timestamp of `EasyList`)
 1. Filters are reloaded from the extension package (check `Network` tab of the
    background console)
 1. The subfilter of the uBlock base filter is properly loaded
@@ -177,10 +177,11 @@ www3.example.com##+js(nanop-click-elements-onload, a)
 
 **Actions**
 1. Go to `https://gorhill.github.io/uBlock/tests/`
-1. Click `Procedural cosmetic filters`
+1. Click `CSS selector-based cosmetic filters`
 1. Add filters as instructed
 1. Reload the page
 1. Wait 5 seconds
+1. Repeat for `Procedural cosmetic filters`
 
 **Expected**
 1. All boxes are green and stay green
