@@ -1,0 +1,60 @@
+diff --git a/platform/chromium/vapi-background.js b/platform/chromium/vapi-background.js
+index e8718424..1f967801 100644
+--- a/platform/chromium/vapi-background.js
++++ b/platform/chromium/vapi-background.js
+@@ -164,7 +164,7 @@ vAPI.browserSettings = (( ) => {
+                 // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/privacy/network#Browser_compatibility
+                 //   Firefox 70+ supports `disable_non_proxied_udp`
+                 const value =
+-                    vAPI.webextFlavor.soup.has('firefox') &&
++                    vAPI.webextFlavor.soup.has('firefox') === false ||
+                     vAPI.webextFlavor.major < 70
+                         ? 'default_public_interface_only'
+                         : 'disable_non_proxied_udp';
+diff --git a/platform/chromium/vapi-usercss.pseudo.js b/platform/chromium/vapi-usercss.pseudo.js
+index dbf55b72..4d0fda69 100644
+--- a/platform/chromium/vapi-usercss.pseudo.js
++++ b/platform/chromium/vapi-usercss.pseudo.js
+@@ -365,11 +365,11 @@ vAPI.DOMFilterer = class {
+             let attr = node.getAttribute('style');
+             if ( attr === null ) {
+                 attr = '';
+-            } else if (
+-                attr.length !== 0 &&
+-                attr.charCodeAt(attr.length - 1) !== 0x3B /* ';' */
+-            ) {
+-                attr += ';';
++            } else if ( attr.length !== 0 ) {
++                if ( attr.endsWith('display:none!important;') ) { continue; }
++                if ( attr.charCodeAt(attr.length - 1) !== 0x3B /* ';' */ ) {
++                    attr += ';';
++                }
+             }
+             node.setAttribute('style', attr + 'display:none!important;');
+         }
+diff --git a/src/js/redirect-engine.js b/src/js/redirect-engine.js
+index f2f67e83..5c550852 100644
+--- a/src/js/redirect-engine.js
++++ b/src/js/redirect-engine.js
+@@ -552,7 +552,7 @@ RedirectEngine.prototype.compileRuleFromStaticFilter = function(line) {
+ 
+ /******************************************************************************/
+ 
+-RedirectEngine.prototype.reFilterParser = /^(?:\|\|([^\/:?#^]+)|\*)([^$]+)?\$([^$]+)$/;
++RedirectEngine.prototype.reFilterParser = /^(?:\|\|([^\/:?#^]+)|\*?)([^$]+)?\$([^$]+)$/;
+ 
+ RedirectEngine.prototype.supportedTypes = new Map([
+     [ 'css', 'stylesheet' ],
+diff --git a/src/js/start.js b/src/js/start.js
+index cefa7cd7..bb4b9d26 100644
+--- a/src/js/start.js
++++ b/src/js/start.js
+@@ -389,7 +389,7 @@ if (
+             )
+         )
+     ) {
+-        browser.browserAction.setPopup({ popup: vAPI.getURL('popup.html') });
++        browser.browserAction.setPopup({ popup: 'popup.html' });
+     }
+ }
+ 
