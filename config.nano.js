@@ -88,7 +88,7 @@
             
             "./patches/90_0_assets_migration.patch",
             "./patches/90_1_cherry_pick_fixes.patch",
-            "./patches/90_2_cherry_pick_script_snippets.patch",
+            "./patches/90_2_resources_updates.patch",
 
             // ----------------------------------------------------------------------------------------------------- //
 
@@ -96,20 +96,10 @@
 
         // --------------------------------------------------------------------------------------------------------- //
 
-        Source: {
-            Linux: "/tmp/uBlock/",
-            Win: "D:/A_Temporary/uBlock/",
-        },
 
-        Target: {
-            Linux: "/tmp/NanoCore2DevEnv/",
-            Win: "D:/A_Temporary/NanoCore2DevEnv/",
-        },
-
-        Output: {
-            Linux: "/tmp/NanoCore2Latest.patch",
-            Win: "D:/A_Temporary/NanoCore2Latest.patch",
-        },
+        Source: "./temp/uBlock/",
+        Target: "./temp/NanoCore2DevEnv/",
+        Output: "./temp/NanoCore2Latest.patch",
 
         // --------------------------------------------------------------------------------------------------------- //
 

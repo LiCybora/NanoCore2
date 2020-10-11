@@ -1,86 +1,86 @@
 {
   "nano_d_ui_group": {
-    "message": "Пользовательский интерфейс",
+    "message": "User interface",
     "description": "Group 'User interface' of settings tab"
   },
   "nano_d_line_wrap_e": {
-    "message": "Мягкое обёртывание длинных строк в редакторе фильтров",
+    "message": "Soft wrap long lines in filter editor",
     "description": "English: Soft wrap long lines in filter editor"
   },
   "nano_d_line_wrap_v": {
-    "message": "Мягкое обёртывание длинных строк в режиме просмотра фильтров",
+    "message": "Soft wrap long lines in filter viewer",
     "description": "English: Soft wrap long lines in filter viewer"
   },
   "nano_d_recompile_filters": {
-    "message": "Принудительная пересборка фильтров",
+    "message": "Force recompile filters",
     "description": "Button in advanced settings to recompile filters"
   },
   "nano_d_resources_links": {
-    "message": "Nano поставляется с двумя наборами ресурсов, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>Ресурсы uBlock Origin</a> и <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>Дополнительные Ресурсы Nano</a>.",
+    "message": "Nano comes with two sets of resources, <a href='https://github.com/gorhill/uBlock/wiki/Resources-Library'>uBlock Origin Resources</a> and <a href='https://github.com/NanoAdblocker/NanoCore2/blob/master/src/snippets.js'>Nano Extra Resources</a>.",
     "description": "Resources reference links, 'Resources' and 'Extra Resources' should be translated"
   },
   "nano_d_ace_help": {
-    "message": "Средство редактирования фильтров Nano основано на Ace и большинство сочетаний клавиш работают одинаково.",
+    "message": "Nano Filter Editor is powered by Ace and most shortcut keys works the same.",
     "description": "[Not Used] Explain the similarity between Nano Filter Editor and Ace in terms of shortcut keys"
   },
   "nano_d_about_based_on": {
-    "message": "Основан на {{@data}}",
+    "message": "Based on {{@data}}",
     "description": "English: Based on {{@data}}"
   },
   "nano_v_title": {
-    "message": "Nano — Средство просмотра фильтров",
+    "message": "Nano — Filter Viewer",
     "description": "Title of the filter viewer"
   },
   "nano_v_read_error": {
-    "message": "Не удалось загрузить содержимое, пожалуйста, обновите.",
+    "message": "Could not load content, please refresh.",
     "description": "Message when filter content could not be loaded"
   },
   "nano_p_cache_control": {
-    "message": "управление кэшем",
+    "message": "cache control",
     "description": "The cache control strip name, can be at most 20 English characters wide"
   },
   "nano_p_open_firewall_pane": {
-    "message": "Переключение панели обзора",
+    "message": "Toggle the overview panel",
     "description": "Tooltip for toggle firewall details (sometimes called overview panel) button"
   },
   "nano_p_refresh_button": {
-    "message": "Нажмите, чтобы обновить эту страницу.\n\nCtrl+click, чтобы обновить эту страницу, в обход кэша.",
+    "message": "Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache.",
     "description": "English: Click to refresh this page.\n\nCtrl+click to refresh this page while bypassing cache."
   },
   "nano_p_force_scroll": {
-    "message": "(бета) Войти в режим принудительной прокрутки (это сломает макет)",
+    "message": "(beta) Enter force scroll mode (will break layout)",
     "description": "Tooltip for force scroll button"
   },
   "nano_p_bug_reporter": {
-    "message": "(бета) Открыть репортер ошибок",
+    "message": "(beta) Open the bug reporter",
     "description": "Tooltip for bug reporter button"
   },
   "nano_l_whitelist_aborted_w": {
-    "message": "Nano не сканировал остальные белые списки на предмет предупреждений, потому что слишком много предупреждений.",
+    "message": "Nano did not scan the rest of the whitelists for warnings because there are too many warnings.",
     "description": "Warning when too many warnings in whitelists"
   },
   "nano_l_whitelist_suspecious_re": {
-    "message": "Эта строка рассматривается как регулярное выражение, это предназначено?",
+    "message": "This line is treated as a regular expression, is that intended?",
     "description": "Warning when parsed as regular expression but is unlikely the intention of user"
   },
   "nano_l_whitelist_aborted_e": {
-    "message": "Nano не сканировал остальные белые списки на наличие ошибок, потому что слишком много ошибок.",
+    "message": "Nano did not scan the rest of the whitelists for errors because there are too many errors.",
     "description": "Error when too many errors in whitelists"
   },
   "nano_l_whitelist_invalid_hostname": {
-    "message": "Это имя хоста недействительно.",
+    "message": "This hostname is not valid.",
     "description": "Error when hostname not valid"
   },
   "nano_l_whitelist_invalid_re": {
-    "message": "Это регулярное выражение имеет синтаксические ошибки.",
+    "message": "This regular expression has syntax errors.",
     "description": "Error when regular expression has syntax errors"
   },
   "nano_l_whitelist_invalid_url": {
-    "message": "Этот URL недействителен.",
+    "message": "This URL is not valid.",
     "description": "Error when a URL not valid"
   },
   "nano_l_filter_aborted_w": {
-    "message": "Nano не сканировал остальные правила фильтрования на предмет предупреждений, потому что слишком много предупреждений.",
+    "message": "Nano did not scan the rest of the filter rules for warnings because there are too many warnings.",
     "description": "Warning when too many warnings in filter rules"
   },
   "nano_l_filter_script_snippet_double_exception": {
@@ -88,7 +88,7 @@
     "description": "Warning when negated domain used with script snippet exception"
   },
   "nano_l_filter_converted_to_exception": {
-    "message": "Nano преобразовал это правило в исключение, поскольку оно содержит только запрещенные домены.",
+    "message": "Nano converted this rule to an exception rule because it only contain negated domains.",
     "description": "Warning when a rule is convered to exception because all negated domains"
   },
   "nano_l_filter_negated_html_filtering": {
@@ -96,31 +96,31 @@
     "description": "Warning when negated domains used with HTML filtering"
   },
   "nano_l_filter_discarded_non_negatable_type": {
-    "message": "Nano отклонил опцию '{{type}}', поскольку ее нельзя отрицать.",
+    "message": "Nano discarded the type option '{{type}}' because it cannot be negated.",
     "description": "[Not Used] English: Nano discarded the type option '{{type}}' because it cannot be negated."
   },
   "nano_l_filter_expanded_mp4_option": {
-    "message": "Nano заменил опцию 'mp4' с 'media,redirect=noop-1s.mp4'.",
+    "message": "Nano replaced the option 'mp4' with 'media,redirect=noop-1s.mp4'.",
     "description": "Warning when 'mp4' is replaced"
   },
   "nano_l_filter_unsupported_type_ignored": {
-    "message": "Nano отбросил параметры типа, которые еще не поддерживаются.",
+    "message": "Nano discarded type options that are not yet supported.",
     "description": "Warning when unsupported types discarded but not entire rule"
   },
   "nano_l_filter_resource_not_found": {
-    "message": "Ресурс '{{res}}' не удалось найти, он написан правильно?",
+    "message": "The resource '{{res}}' could not be found, is it spelled correctly?",
     "description": "Warning when resource not found"
   },
   "nano_l_filter_resource_not_redirectable": {
-    "message": "Ресурс '{{res}}' не может использоваться как цель перенаправления.",
+    "message": "The resource '{{res}}' cannot be used as a redirect target.",
     "description": "Warning when resource not redirectable"
   },
   "nano_l_filter_resource_not_injectable": {
-    "message": "Ресурс '{{res}}' не может быть внедрен как фрагмент скрипта.",
+    "message": "The resource '{{res}}' cannot be injected as a script snippet.",
     "description": "Warning when resource not injectable"
   },
   "nano_l_filter_resource_alias_used": {
-    "message": "'{{alias}}' является псевдонимом '{{res}}', вместо этого попробуйте использовать настоящее имя.",
+    "message": "'{{alias}}' is the alias of '{{res}}', consider using the real name instead.",
     "description": "Warning when resource alias used"
   },
   "nano_l_html_filtering_not_supported": {
@@ -128,71 +128,71 @@
     "description": "Warning when HTML filtering is used on unsupported platforms"
   },
   "nano_l_filter_comment_bracket": {
-    "message": "Использование '[' для обозначения комментария устарело, вместо этого используйте '!'.",
+    "message": "Using '[' to denote comment is deprecated, use '!' instead.",
     "description": "Deprecation when '[' used for comments"
   },
   "nano_l_filter_inline_comment": {
-    "message": "Встроенные комментарии устарели.",
+    "message": "Inline comments are deprecated.",
     "description": "Deprecation when inline comments"
   },
   "nano_l_filter_script_contains": {
-    "message": "'##script:contains(...)' устарело, вместо этого используйте '##^script:has-text(...)'.",
+    "message": "'##script:contains(...)' is deprecated, use '##^script:has-text(...)' instead.",
     "description": "Deprecation when 'script:contains' is used"
   },
   "nano_l_filter_mp4_option": {
-    "message": "Использование опции 'mp4' устарело, вместо этого запишите полные параметры.",
+    "message": "The use of the option 'mp4' is deprecated, write out the full options instead.",
     "description": "Deprecation when 'mp4'"
   },
   "nano_l_filter_aborted_e": {
-    "message": "Nano не сканировал остальные правила фильтрования на предмет ошибок, потому что слишком много ошибок.",
+    "message": "Nano did not scan the rest of the filter rules for errors because there are too many errors.",
     "description": "Error when too many errors in filter rules"
   },
   "nano_l_filter_ag_js_injection": {
-    "message": "Внедрение необработанного JavaScript не допускается из-за проблем с безопасностью.",
+    "message": "Raw JavaScript injection is not allowed due to security concerns.",
     "description": "Error when raw JavaScript injection"
   },
   "nano_l_filter_bad_selector": {
-    "message": "Селектор в этом правиле содержит синтаксические ошибки.",
+    "message": "The selector in this rule has syntax errors.",
     "description": "Error when selector has syntax errors"
   },
   "nano_l_filter_too_expensive": {
-    "message": "Это правило не может быть общим.",
+    "message": "This rule cannot be generic.",
     "description": "Error when expensive rule is generic"
   },
   "nano_l_filter_style_injection_syntax_error": {
-    "message": "Это правило внедрения CSS имеет синтаксические ошибки.",
+    "message": "This CSS injection rule has syntax errors.",
     "description": "Error when CSS injection has syntax errors"
   },
   "nano_l_filter_assets_access_violation": {
-    "message": "Непривилегированные фильтры не могут ссылаться на привилегированные ресурсы.",
+    "message": "Unprivileged filters may not reference privileged resources.",
     "description": "Error when unprivileged filter references a privileged resources"
   },
   "nano_l_filter_localhost_entry": {
-    "message": "Эта запись файла хоста отбрасывается, потому что это объявление localhost.",
+    "message": "This host file entry is discarded because it is localhost declaration.",
     "description": "Error when localhost declaration"
   },
   "nano_l_filter_ag_element_remove": {
-    "message": "Правила удаления элементов с синтаксисом AdGuard пока не поддерживаются, вместо этого используйте '##^'.",
+    "message": "Element remove rules with AdGuard syntax are not yet supported, use '##^' instead.",
     "description": "Error when AdGuard style element remove rule"
   },
   "nano_l_filter_negated_generichide": {
-    "message": "Параметры 'generichide', 'ghide' и 'elemhide' не могут быть отклонены.",
+    "message": "The options 'generichide', 'ghide', and 'elemhide' cannot be negated.",
     "description": "Error when 'generichide' is negated"
   },
   "nano_l_filter_bad_domain_option_arguments": {
-    "message": "Опция 'domain=...' имеет неверные аргументы.",
+    "message": "The option 'domain=...' has invalid arguments.",
     "description": "Error when 'domain=' has invalid arguments"
   },
   "nano_l_filter_bad_denyallow_option_arguments": {
-    "message": "Опция 'denyallow=...' имеет неверные аргументы.",
+    "message": "The option 'denyallow=...' has invalid arguments.",
     "description": "Error when 'denyallow=' has invalid arguments"
   },
   "nano_l_filter_bad_csp_option_arguments": {
-    "message": "Параметр 'csp=...' не имеет аргументов или имеет недопустимые аргументы.",
+    "message": "The option 'csp=...' has no arguments or has invalid arguments.",
     "description": "Error when 'csp=' has no arguments or has invalid arguments"
   },
   "nano_l_filter_unknown_option": {
-    "message": "Опция '{{option}}' не распознана.",
+    "message": "The option '{{option}}' is not recognized.",
     "description": "English: The option '{{option}}' is not recognized."
   },
   "nano_l_filter_only_unsupported_type": {
@@ -204,11 +204,11 @@
     "description": "Error when filter rule explicitly selected no types"
   },
   "nano_l_filter_bad_re": {
-    "message": "Это сетевое правило имеет ошибки в синтаксисе регулярных выражений.",
+    "message": "This network rule has regular expression syntax errors.",
     "description": "Error when network rule has regular expression syntax errors"
   },
   "nano_l_filter_too_short": {
-    "message": "Это сетевое правило слишком короткое.",
+    "message": "This network rule is too short.",
     "description": "Error when network rule is too short"
   },
   "nano_l_filter_matcher_too_long": {
@@ -220,7 +220,7 @@
     "description": "Error when '##+js()' is used"
   },
   "nano_l_filter_intervention_smed79": {
-    "message": "Привязка домена не может сразу сопровождаться '^'.",
+    "message": "The domain anchor may not be immediately followed by '^'.",
     "description": "Error when the bad rule from SMed79 is discarded"
   },
   "nano_r_no_type": {
@@ -256,15 +256,15 @@
     "description": "Warning when the '*/*' workaround is simplified"
   },
   "nano_r_redirect_in_exception": {
-    "message": "Правила перенаправления не могут быть исключениями.",
+    "message": "Redirect rules cannot be exceptions.",
     "description": "Error when redirect used in exception"
   },
   "nano_r_redirected_twice": {
-    "message": "Правила перенаправления могут содержать только одну инструкцию перенаправления.",
+    "message": "Redirect rules can only contain one redirect directive.",
     "description": "Error when two redirects in one rule"
   },
   "nano_b_cosmetic_filter_passed_through": {
-    "message": "Это правило пока отклонено. Дополнительная информация: https://github.com/NanoAdblocker/NanoCore/issues/77",
+    "message": "This rule is rejected for now. More information: https://github.com/NanoAdblocker/NanoCore/issues/77",
     "description": "https://github.com/NanoAdblocker/NanoCore/issues/77"
   }
 }
