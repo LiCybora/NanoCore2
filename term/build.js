@@ -170,8 +170,8 @@ exports.build_core = async (browser) => {
     await fs.copy(r("./src/js"), r(output, "js"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
 
-    await fs.copy(r(exports.defender_repo, "src/reporter"), r(output, "reporter"));
-    await fs.copy(r(exports.defender_repo, "src/libdom.js"), r(output, "libdom.js"));
+    // await fs.copy(r(exports.defender_repo, "src/reporter"), r(output, "reporter"));
+    // await fs.copy(r(exports.defender_repo, "src/libdom.js"), r(output, "libdom.js"));
 
     // This must be done after copying upstream web accessible resources
     await fs.copy(r("./src/war"), r(output, "web_accessible_resources"));
