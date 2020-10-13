@@ -169,6 +169,7 @@ exports.build_core = async (browser) => {
     await fs.copy(r("./src/icons/icon_16.png"), r(output, "img/icon_16.png"));
     await fs.copy(r("./src/js"), r(output, "js"));
     await fs.copy(r("./LICENSE"), r(output, "LICENSE"));
+    await fs.copy(r("./src/announcement.html"), r(output, "announcement.html"));
 
     // await fs.copy(r(exports.defender_repo, "src/reporter"), r(output, "reporter"));
     // await fs.copy(r(exports.defender_repo, "src/libdom.js"), r(output, "libdom.js"));
