@@ -1,3 +1,29 @@
+# Important Announcements Regarding Recent Changes
+
+The project upstream [is sold](https://github.com/NanoAdblocker/NanoCore/issues/362) and **I refuse to maintain for new developers who never show up on GitHub**. Nano Adblocker on Firefox port is now inactive. Users are recommended to backup and uninstall, and migrate to other alternative extension.
+
+**NOTE: Unlike upstream, Nano Adblocker on this port is still under my control and not related to upstream's new developer(s)**
+
+For more information, please read this [ticket](https://github.com/LiCybora/NanoDefenderFirefox/issues/187).
+
+## Alternative
+
+Try [uBlock Origin](https://github.com/gorhill/uBlock) where Nano Adblocker forked from. Their interfaces are similar are quite easy to familiar with. You may restore most settings from Nano to uBlock Origin by: 
+
+`Settings` > `Back up to file` in Nano and `Settings` > `Restore from file`
+
+`Filter List` may be an exception as two extensions have different built-in list and you might need to configure it manually.
+
+## Time line
+
+v1.0.0.154 will be released as final version with bug reporter disabled (to prevent unnoticed user submit bug report to unknown developers). Nano Adblocker will be unlisted from AMO a week after final version release to prevent new install. Any version before this will be disabled to prevent submitting bug reporter to stranger which might potentially compromise privacy policy.
+
+XPI file will be archived on [here](https://github.com/LiCybora/NanoCoreFirefox/releases) if user still want to install.
+
+## Final words
+
+Thanks for all volunteer that contribute to this project. Also thanks for users reporting issue to benefit other users as well.
+
 # Nano Core 2 for Firefox
 
 Restarting fresh on Firefox.
@@ -6,7 +32,7 @@ A patch driven fork of uBlock Origin.
 
 Upstream commit pin: `76eaef4d2b13bbc1b64d230182cac8f6523a9b17` or `1.27.10`
 
-The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2).
+The code of project is shared with [upstream](https://github.com/NanoAdblocker/NanoCore2) **before it is sold**.
 
 **Please submit issues to the
 [Nano Core issues tracker](https://github.com/LiCybora/NanoCoreFirefox/issues).**
@@ -31,7 +57,7 @@ Your language is not listed? Submit an issue to let me know.
    directory to get upstream. Check out a tag or commit as appropriate.
 1. In Nano Core 2 repository:
    1. Navigate to `/term` directory and run `npm install`.
-   1. Update `/config.json` as appropriate.
+   1. Update `/config.nano.js` as appropriate.
    1. Run `node ./term` to open Nano Core 2 Terminal.
 
 Note: The private repository `Prototype` is required for publishing.

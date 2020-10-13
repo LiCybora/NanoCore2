@@ -52,14 +52,14 @@
             "./patches/integration/10_8_filter_viewer.patch",
 
             "./patches/integration/20_0_force_scroll_background.patch",
-            "./patches/integration/20_1_bug_reporter_background.patch",
+            //"./patches/integration/20_1_bug_reporter_background.patch",
             "./patches/integration/21_0_popup_tweaks.patch",
             "./patches/integration/21_1_force_scroll.patch",
-            "./patches/integration/21_2_bug_reporter.patch",
+            //"./patches/integration/21_2_bug_reporter.patch",
             "./patches/integration/22_0_new_popup_tweaks.patch",
             "./patches/integration/22_1_font_awesome.patch",
             "./patches/integration/22_2_new_force_scroll.patch",
-            "./patches/integration/22_3_new_bug_reporter.patch",
+            //"./patches/integration/22_3_new_bug_reporter.patch",
 
             "./patches/integration/30_0_settings_tweaks.patch",
             "./patches/integration/30_1_editor_settings.patch",
@@ -88,7 +88,7 @@
             
             "./patches/90_0_assets_migration.patch",
             "./patches/90_1_cherry_pick_fixes.patch",
-            "./patches/90_2_cherry_pick_script_snippets.patch",
+            "./patches/90_2_resources_updates.patch",
 
             // ----------------------------------------------------------------------------------------------------- //
 
@@ -96,20 +96,10 @@
 
         // --------------------------------------------------------------------------------------------------------- //
 
-        Source: {
-            Linux: "/tmp/uBlock/",
-            Win: "D:/A_Temporary/uBlock/",
-        },
 
-        Target: {
-            Linux: "/tmp/NanoCore2DevEnv/",
-            Win: "D:/A_Temporary/NanoCore2DevEnv/",
-        },
-
-        Output: {
-            Linux: "/tmp/NanoCore2Latest.patch",
-            Win: "D:/A_Temporary/NanoCore2Latest.patch",
-        },
+        Source: "./temp/uBlock/",
+        Target: "./temp/NanoCore2DevEnv/",
+        Output: "./temp/NanoCore2Latest.patch",
 
         // --------------------------------------------------------------------------------------------------------- //
 
