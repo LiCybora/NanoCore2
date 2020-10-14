@@ -625,7 +625,6 @@ nano.Editor.prototype.set_value_focus = function (val, cursor, keep_anno) {
         cursor = 1;
 
     this.editor.setValue(val, cursor);
-    this.editor.renderer.scrollCursorIntoView();
     this.editor.focus();
 
     if (!keep_anno)
